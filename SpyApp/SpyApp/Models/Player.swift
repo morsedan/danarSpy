@@ -1,5 +1,5 @@
 //
-//  Person.swift
+//  Player.swift
 //  SpyApp
 //
 //  Created by morse on 2/2/20.
