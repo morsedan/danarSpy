@@ -15,17 +15,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Player Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0a-td-nie">
-                                <rect key="frame" x="186" y="175" width="128" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose how many people will be playing:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0a-td-nie">
+                                <rect key="frame" x="40" y="164" width="334" height="82"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9q-EI-Qdo">
+                                <rect key="frame" x="0.0" y="254" width="414" height="216"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXe-EG-vo6">
+                                <rect key="frame" x="80" y="550" width="254" height="169.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PXe-EG-vo6" secondAttribute="height" multiplier="3:2" id="5zU-Fq-QVa"/>
+                                </constraints>
+                                <state key="normal" title="Play!"/>
+                                <connections>
+                                    <action selector="playTapped:" destination="CsN-Xv-ZkC" eventType="touchUpInside" id="DyA-3j-PQl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="b9q-EI-Qdo" firstAttribute="trailing" secondItem="KZk-am-4ir" secondAttribute="trailing" id="7fH-t7-24v"/>
+                            <constraint firstItem="b9q-EI-Qdo" firstAttribute="top" secondItem="d0a-td-nie" secondAttribute="bottom" constant="8" id="9FX-QZ-FdG"/>
+                            <constraint firstItem="b9q-EI-Qdo" firstAttribute="leading" secondItem="KZk-am-4ir" secondAttribute="leading" id="BLf-Tj-6Hu"/>
+                            <constraint firstItem="d0a-td-nie" firstAttribute="leading" secondItem="KZk-am-4ir" secondAttribute="leading" constant="40" id="NNP-fb-751"/>
+                            <constraint firstItem="KZk-am-4ir" firstAttribute="trailing" secondItem="PXe-EG-vo6" secondAttribute="trailing" constant="80" id="Swe-fe-xgp"/>
+                            <constraint firstItem="d0a-td-nie" firstAttribute="top" secondItem="KZk-am-4ir" secondAttribute="top" constant="120" id="Ybo-F9-9ra"/>
+                            <constraint firstItem="PXe-EG-vo6" firstAttribute="top" secondItem="b9q-EI-Qdo" secondAttribute="bottom" constant="80" id="bTj-3t-4Pm"/>
+                            <constraint firstAttribute="trailing" secondItem="d0a-td-nie" secondAttribute="trailing" constant="40" id="o0w-hO-avB"/>
+                            <constraint firstItem="PXe-EG-vo6" firstAttribute="leading" secondItem="KZk-am-4ir" secondAttribute="leading" constant="80" id="tVg-Gk-a65"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KZk-am-4ir"/>
                     </view>
+                    <connections>
+                        <outlet property="playerCountPickerView" destination="b9q-EI-Qdo" id="R73-DT-ddF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WmH-n9-SUQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

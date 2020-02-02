@@ -9,12 +9,32 @@
 import UIKit
 
 class SetPlayerCountViewController: UIViewController {
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var playerCountPickerView: UIPickerView!
+    
+    // MARK: - Properties
+    
+    let game = Game()
+    
+    // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        playerCountPickerView.dataSource = self
+        playerCountPickerView.delegate = self
     }
+    
+    // MARK: - Actions
+    
+    @IBAction func playTapped(_ sender: Any) {
+        let playerCount = playerCountPickerView.selectedRow(inComponent: 0) + 3
+        print(playerCount)
+        game.startGame(with: playerCount)
+    }
+    
     
 
     /*
@@ -27,4 +47,19 @@ class SetPlayerCountViewController: UIViewController {
     }
     */
 
+}
+
+extension SetPlayerCountViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 8
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(row + 3)
+    }
+    
 }

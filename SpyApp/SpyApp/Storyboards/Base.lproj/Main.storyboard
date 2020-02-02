@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="139" y="136"/>
         </scene>
-        <!--CreatePlayer-->
+        <!--SetPlayerCount-->
         <scene sceneID="G0k-9C-a0M">
             <objects>
-                <viewControllerPlaceholder storyboardName="CreatePlayer" id="Xmj-9S-9fo" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="SetPlayerCount" id="Xmj-9S-9fo" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="4PU-GC-c78"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGe-oF-92U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
