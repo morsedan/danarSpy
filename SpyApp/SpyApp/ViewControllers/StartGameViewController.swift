@@ -14,6 +14,11 @@ class StartGameViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func startTapped(_ sender: Any) {
+        performSegue(withIdentifier: PropertyKeys.createPlayerSegue, sender: self)
+    }
+    
 
 
 }

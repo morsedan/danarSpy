@@ -25,6 +25,7 @@
 		C0FF10A323E77FAD00E54968 /* GameOver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0FF10A223E77FAD00E54968 /* GameOver.storyboard */; };
 		C0FF10AB23E77FEC00E54968 /* SpyAppGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF10AA23E77FEC00E54968 /* SpyAppGameTests.swift */; };
 		C0FF10B523E780CB00E54968 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF10B423E780CB00E54968 /* Player.swift */; };
+		C0FF10B723E7843F00E54968 /* PropertyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF10B623E7843F00E54968 /* PropertyKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		C0FF10AA23E77FEC00E54968 /* SpyAppGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyAppGameTests.swift; sourceTree = "<group>"; };
 		C0FF10AC23E77FEC00E54968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0FF10B423E780CB00E54968 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		C0FF10B623E7843F00E54968 /* PropertyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 		C0FF108823E77E0700E54968 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C0FF10B623E7843F00E54968 /* PropertyKeys.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				C0FF109323E77EC700E54968 /* Game.swift in Sources */,
 				C0FF109B23E77F5D00E54968 /* GameOverViewController.swift in Sources */,
 				C0FF108F23E77EB100E54968 /* ItemPair.swift in Sources */,
+				C0FF10B723E7843F00E54968 /* PropertyKeys.swift in Sources */,
 				C0FF107323E77D0E00E54968 /* StartGameViewController.swift in Sources */,
 				C0FF106F23E77D0E00E54968 /* AppDelegate.swift in Sources */,
 				C0FF109723E77F1F00E54968 /* CreatePlayerViewController.swift in Sources */,
