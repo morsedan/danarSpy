@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+enum RoleType: String, Codable {
+    case spy = "Spy"
+    case defender = "Defender"
+}
+
+struct Player: Codable, Equatable {
+    let name: String
+    let id: String = UUID().uuidString
+    let role: RoleType
+    var isStillPlaying: Bool
+}

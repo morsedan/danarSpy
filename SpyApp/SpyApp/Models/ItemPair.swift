@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct ItemPair {
+    let spyItem: String
+    let defenderItem: String
+}
