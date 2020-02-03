@@ -14,6 +14,8 @@ class EliminatePlayerViewController: UIViewController {
     
     // MARK: - Properties
     
+    var game: Game?
+    
     // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {

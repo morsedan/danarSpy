@@ -16,7 +16,7 @@ class StartGameViewController: UIViewController {
     }
     
     @IBAction func startTapped(_ sender: Any) {
-        performSegue(withIdentifier: PropertyKeys.createPlayerSegue, sender: self)
+        performSegue(withIdentifier: PropertyKeys.setCountSegue, sender: self)
     }
     
 

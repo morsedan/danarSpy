@@ -14,12 +14,14 @@ class CreatePlayerViewController: UIViewController {
     
     // MARK: - Properties
     
+    var game: Game?
+    
     // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        print(game?.playerCount, game?.activePlayers)
     }
     
 

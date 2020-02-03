@@ -9,5 +9,6 @@
 import Foundation
 
 struct PropertyKeys {
+    static let setCountSegue = "ShowSetPlayerCountSegue"
     static let createPlayerSegue = "ShowCreatePlayerSegue"
 }

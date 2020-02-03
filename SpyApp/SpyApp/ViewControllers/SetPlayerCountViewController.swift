@@ -31,8 +31,9 @@ class SetPlayerCountViewController: UIViewController {
     
     @IBAction func playTapped(_ sender: Any) {
         let playerCount = playerCountPickerView.selectedRow(inComponent: 0) + 3
-        print(playerCount)
+        
         game.startGame(with: playerCount)
+        performSegue(withIdentifier: PropertyKeys.createPlayerSegue, sender: self)
     }
     
     // MARK: - Navigation
@@ -40,9 +41,8 @@ class SetPlayerCountViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let createPlayerVC = segue.destination as? CreatePlayerViewController else { return }
         
-        
+        createPlayerVC.game = game
     }
-
 }
 
 extension SetPlayerCountViewController: UIPickerViewDelegate, UIPickerViewDataSource {

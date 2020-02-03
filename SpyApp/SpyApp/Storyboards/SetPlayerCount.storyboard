@@ -29,7 +29,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PXe-EG-vo6" secondAttribute="height" multiplier="3:2" id="5zU-Fq-QVa"/>
                                 </constraints>
-                                <state key="normal" title="Play!"/>
+                                <state key="normal" title="Add Players..."/>
                                 <connections>
                                     <action selector="playTapped:" destination="CsN-Xv-ZkC" eventType="touchUpInside" id="DyA-3j-PQl"/>
                                 </connections>
@@ -51,11 +51,22 @@
                     </view>
                     <connections>
                         <outlet property="playerCountPickerView" destination="b9q-EI-Qdo" id="R73-DT-ddF"/>
+                        <segue destination="3fy-Rw-k5X" kind="show" identifier="ShowCreatePlayerSegue" id="lIb-6G-kRS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WmH-n9-SUQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="112" y="155"/>
+        </scene>
+        <!--CreatePlayer-->
+        <scene sceneID="WvP-6s-JUF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreatePlayer" id="3fy-Rw-k5X" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="vra-aa-gov"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T1A-jO-3px" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="636" y="155"/>
         </scene>
     </scenes>
 </document>

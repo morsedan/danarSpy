@@ -97,12 +97,12 @@ class SpyAppGameTests: XCTestCase {
     
     
     private func createSixPlayers(in game: Game) {
-        game.addPlayer(named: "Ted")
-        game.addPlayer(named: "Ned")
-        game.addPlayer(named: "Ed")
-        game.addPlayer(named: "Red")
-        game.addPlayer(named: "Jed")
-        game.addPlayer(named: "Fred")
+        _ = game.addPlayer(named: "Ted")
+        _ = game.addPlayer(named: "Ned")
+        _ = game.addPlayer(named: "Ed")
+        _ = game.addPlayer(named: "Red")
+        _ = game.addPlayer(named: "Jed")
+        _ = game.addPlayer(named: "Fred")
     }
 
 }
