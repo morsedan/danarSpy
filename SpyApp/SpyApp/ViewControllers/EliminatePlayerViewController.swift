@@ -9,6 +9,12 @@
 import UIKit
 
 class EliminatePlayerViewController: UIViewController {
+    
+    // MARK: - Outlets
+    
+    // MARK: - Properties
+    
+    // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
