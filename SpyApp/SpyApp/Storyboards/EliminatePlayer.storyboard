@@ -15,15 +15,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Eliminate Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mj-Em-pXU">
-                                <rect key="frame" x="186" y="159" width="121" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="7yW-dZ-9hf">
+                                <rect key="frame" x="20" y="164" width="374" height="378"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose player to eliminate:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mj-Em-pXU">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="82"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pqy-BB-eIX">
+                                        <rect key="frame" x="0.0" y="107" width="374" height="216"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6IU-VG-MX3">
+                                        <rect key="frame" x="0.0" y="348" width="374" height="30"/>
+                                        <state key="normal" title="Eliminate"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7yW-dZ-9hf" firstAttribute="top" secondItem="Yl5-OA-fx3" secondAttribute="top" constant="120" id="LGD-BD-6iA"/>
+                            <constraint firstItem="Yl5-OA-fx3" firstAttribute="trailing" secondItem="7yW-dZ-9hf" secondAttribute="trailing" constant="20" id="q2c-Bb-NBG"/>
+                            <constraint firstItem="7yW-dZ-9hf" firstAttribute="leading" secondItem="Yl5-OA-fx3" secondAttribute="leading" constant="20" id="trJ-af-o2h"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Yl5-OA-fx3"/>
                     </view>
                 </viewController>

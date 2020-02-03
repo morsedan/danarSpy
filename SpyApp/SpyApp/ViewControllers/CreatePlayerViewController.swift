@@ -12,6 +12,14 @@ class CreatePlayerViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var nameStackView: UIStackView!
+    @IBOutlet weak var roleStackView: UIStackView!
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var roleLabel: UILabel!
+    
+    
+    
     // MARK: - Properties
     
     var game: Game?
@@ -21,18 +29,84 @@ class CreatePlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(game?.playerCount, game?.activePlayers)
+        nameTextField.delegate = self
+        requestName()
     }
     
-
-    /*
+    // MARK: - Actions
+    
+    @IBAction func okTapped(_ sender: Any) {
+        
+        addOrContinue()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func addOrContinue() {
+        
+        guard let game = game else {
+            // TODO: add alert that something went wrong
+            return
+        }
+        
+        if game.players.count < game.playerCount {
+            requestName()
+        } else {
+            print("Added all players")
+            
+        }
+    }
+    
+    private func requestName() {
+        // zero out name
+        roleStackView.isHidden = true
+        nameStackView.isHidden = false
+    }
+    
+    private func addPlayer(_ player: String) {
+        
+        guard let game = game else {
+            // TODO: add alert that something went wrong
+            return
+        }
+        let role = game.addPlayer(named: player)
+        
+        displayRole(with: role)
+    }
+    
+    private func displayRole(with role: String) {
+        
+        roleLabel.text = "Role: \(role)"
+        roleStackView.isHidden = false
+        nameStackView.isHidden = true
+    }
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let eliminatePlayerVC = segue.destination as? EliminatePlayerViewController else { return }
+        
+        eliminatePlayerVC.game = game
     }
-    */
 
+}
+
+// MARK: - Extensions
+
+extension CreatePlayerViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        guard let name = nameTextField.text,
+            !name.isEmpty else {
+                // TODO: Add alert telling player to enter their name
+                return true
+        }
+        
+        addPlayer(name)
+        
+        return true
+    }
+    
+    
 }

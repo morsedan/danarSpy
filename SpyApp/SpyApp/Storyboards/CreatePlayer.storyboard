@@ -15,21 +15,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1GH-Ly-UcQ">
-                                <rect key="frame" x="186" y="134" width="103" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="643-Jt-Noe">
+                                <rect key="frame" x="20" y="124" width="374" height="75.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your Name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1GH-Ly-UcQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWW-gQ-X85">
+                                        <rect key="frame" x="0.0" y="41.5" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qmb-8D-HLm">
+                                <rect key="frame" x="20" y="694.5" width="374" height="107.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Role:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTg-Qk-g57">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once you've memorized your role, tap &quot;OK&quot; and pass the phone to the next player." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9h-LA-3BR">
+                                        <rect key="frame" x="0.0" y="28.5" width="374" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46c-6b-wyC">
+                                        <rect key="frame" x="0.0" y="77.5" width="374" height="30"/>
+                                        <state key="normal" title="OK"/>
+                                        <connections>
+                                            <action selector="okTapped:" destination="aK2-cR-xh8" eventType="touchUpInside" id="R42-cC-4jx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qmb-8D-HLm" firstAttribute="leading" secondItem="g9e-7O-4Oh" secondAttribute="leading" constant="20" id="CTM-QI-K1e"/>
+                            <constraint firstItem="g9e-7O-4Oh" firstAttribute="trailing" secondItem="643-Jt-Noe" secondAttribute="trailing" constant="20" id="Pws-gO-iwA"/>
+                            <constraint firstItem="643-Jt-Noe" firstAttribute="top" secondItem="g9e-7O-4Oh" secondAttribute="top" constant="80" id="Quf-ON-tWo"/>
+                            <constraint firstAttribute="trailing" secondItem="qmb-8D-HLm" secondAttribute="trailing" constant="20" id="cge-za-h6a"/>
+                            <constraint firstItem="643-Jt-Noe" firstAttribute="leading" secondItem="g9e-7O-4Oh" secondAttribute="leading" constant="20" id="k9b-7q-gMx"/>
+                            <constraint firstItem="g9e-7O-4Oh" firstAttribute="bottom" secondItem="qmb-8D-HLm" secondAttribute="bottom" constant="60" id="lL4-Iz-Rff"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="g9e-7O-4Oh"/>
                     </view>
+                    <connections>
+                        <outlet property="nameStackView" destination="643-Jt-Noe" id="Pnr-d6-W5y"/>
+                        <outlet property="nameTextField" destination="NWW-gQ-X85" id="hc5-c8-Y1b"/>
+                        <outlet property="roleLabel" destination="UTg-Qk-g57" id="3Bk-6s-jKk"/>
+                        <outlet property="roleStackView" destination="qmb-8D-HLm" id="Oee-Ro-UrB"/>
+                        <segue destination="UIi-Wv-mhF" kind="show" identifier="ShowEliminatePlayerSegue" id="EOv-Ig-KMI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvh-WJ-0V3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="77" y="139"/>
+        </scene>
+        <!--EliminatePlayer-->
+        <scene sceneID="oqp-U0-JSm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EliminatePlayer" id="UIi-Wv-mhF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="rNr-Bh-fus"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPw-2m-E13" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="585" y="139"/>
         </scene>
     </scenes>
 </document>
