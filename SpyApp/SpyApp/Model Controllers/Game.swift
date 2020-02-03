@@ -64,28 +64,34 @@ class Game {
         }
     }
     
-    func eliminatePlayer(_ player: Player) {
+    func eliminatePlayerAndContinue(_ player: Player) -> Bool {
         
-        guard let index = players.firstIndex(of: player) else { return }
-        players[index].isStillPlaying = false
+//        guard let index = players.firstIndex(of: player) else { return false }
+//        players[index].isStillPlaying = false
+        
+        guard let index = activePlayers.firstIndex(of: player) else { return true }
+        activePlayers.remove(at: index)
         
         if player.role == .spy {
             endGame()
+            return false
         } else if activePlayers.count <= 2 {
             endGame()
+            return false
         }
-        // TODO: Check if <= 2 active players and end if true
+        return true
     }
     
     func endGame() {
+        
+        print("endGame.activePlayers: \(activePlayers)")
         let spyCount = activePlayers.filter { $0.role == .spy }.count
-        if spyCount <= 1 {
+        if spyCount >= 1 {
             print("Spy wins!")
         } else {
             print("Defenders win!")
         }
     }
-    
     
     // MARK: - Private Methods
     

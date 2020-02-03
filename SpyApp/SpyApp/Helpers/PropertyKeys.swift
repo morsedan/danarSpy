@@ -12,4 +12,5 @@ struct PropertyKeys {
     static let setCountSegue = "ShowSetPlayerCountSegue"
     static let createPlayerSegue = "ShowCreatePlayerSegue"
     static let eliminateSegue = "ShowEliminatePlayerSegue"
+    static let gameOverSegue = "ShowGameOverSegue"
 }

@@ -30,6 +30,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6IU-VG-MX3">
                                         <rect key="frame" x="0.0" y="348" width="374" height="30"/>
                                         <state key="normal" title="Eliminate"/>
+                                        <connections>
+                                            <action selector="eliminateTapped:" destination="Qr3-mO-dCB" eventType="touchUpInside" id="Eql-u3-49y"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -42,10 +45,25 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yl5-OA-fx3"/>
                     </view>
+                    <connections>
+                        <outlet property="eliminateButton" destination="6IU-VG-MX3" id="UNe-9F-mZO"/>
+                        <outlet property="playerPickerView" destination="Pqy-BB-eIX" id="hmh-Vw-Hbg"/>
+                        <segue destination="kDH-Hz-6ns" kind="show" identifier="ShowGameOverSegue" id="uAX-c3-GNV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3B-cm-teX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="103" y="130"/>
+            <point key="canvasLocation" x="62" y="130"/>
+        </scene>
+        <!--GameOver-->
+        <scene sceneID="BkP-P3-UZ5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GameOver" id="kDH-Hz-6ns" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="a4c-DJ-nRE"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l8i-eS-ZhJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="572" y="130"/>
         </scene>
     </scenes>
 </document>

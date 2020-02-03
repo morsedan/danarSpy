@@ -31,6 +31,8 @@ class CreatePlayerViewController: UIViewController {
 
         nameTextField.delegate = self
         requestName()
+        
+        nameTextField.becomeFirstResponder()
     }
     
     // MARK: - Actions
@@ -50,15 +52,18 @@ class CreatePlayerViewController: UIViewController {
         }
         
         if game.players.count < game.playerCount {
+            
             requestName()
         } else {
             print("Added all players")
-            
+            performSegue(withIdentifier: PropertyKeys.eliminateSegue, sender: self)
         }
     }
     
     private func requestName() {
-        // zero out name
+        
+        nameTextField.text = ""
+        nameTextField.becomeFirstResponder()
         roleStackView.isHidden = true
         nameStackView.isHidden = false
     }
