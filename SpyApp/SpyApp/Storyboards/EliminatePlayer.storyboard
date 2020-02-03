@@ -48,7 +48,8 @@
                     <connections>
                         <outlet property="eliminateButton" destination="6IU-VG-MX3" id="UNe-9F-mZO"/>
                         <outlet property="playerPickerView" destination="Pqy-BB-eIX" id="hmh-Vw-Hbg"/>
-                        <segue destination="kDH-Hz-6ns" kind="show" identifier="ShowGameOverSegue" id="uAX-c3-GNV"/>
+                        <outlet property="stackView" destination="7yW-dZ-9hf" id="yav-BL-TJA"/>
+                        <segue destination="kDH-Hz-6ns" kind="presentation" identifier="ShowGameOverSegue" modalPresentationStyle="fullScreen" id="uAX-c3-GNV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3B-cm-teX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

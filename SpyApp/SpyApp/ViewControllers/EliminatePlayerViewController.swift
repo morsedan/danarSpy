@@ -12,6 +12,7 @@ class EliminatePlayerViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var playerPickerView: UIPickerView!
     @IBOutlet weak var eliminateButton: UIButton!
     
@@ -26,8 +27,17 @@ class EliminatePlayerViewController: UIViewController {
 
         playerPickerView.delegate = self
         playerPickerView.dataSource = self
-        
         pickerView(playerPickerView, didSelectRow: 0, inComponent: 0)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard  let game = game else { return }
+        if game.gameIsOver {
+            stackView.isHidden = true
+            dismiss(animated: false, completion: nil)
+        }
     }
     
     // MARK: - Actions

@@ -35,6 +35,16 @@ class CreatePlayerViewController: UIViewController {
         nameTextField.becomeFirstResponder()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard  let game = game else { return }
+        if game.gameIsOver {
+            nameStackView.isHidden = true
+            roleStackView.isHidden = true
+            dismiss(animated: false, completion: nil)
+        }
+    }
+    
     // MARK: - Actions
     
     @IBAction func okTapped(_ sender: Any) {

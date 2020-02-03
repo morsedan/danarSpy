@@ -36,7 +36,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="Xmj-9S-9fo" kind="show" identifier="ShowSetPlayerCountSegue" id="39I-ig-bEO"/>
+                        <segue destination="Xmj-9S-9fo" kind="presentation" identifier="ShowSetPlayerCountSegue" modalPresentationStyle="fullScreen" id="39I-ig-bEO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

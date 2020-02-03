@@ -14,6 +14,7 @@ class Game {
     var players: [Player] = []
     lazy var activePlayers = players.filter { $0.isStillPlaying }
     var playerCount: Int = 0
+    var gameIsOver = false
     private var spyPlayerIndex: Int = 0
     private let itemPairs = [ItemPair(spyItem: "Pie", defenderItem: "Cake"),
                              ItemPair(spyItem: "Oak Tree", defenderItem: "Pine Tree"),
@@ -37,6 +38,7 @@ class Game {
     // MARK: - Game Methods
     
     func startGame(with playerCount: Int) {
+        gameIsOver = false
         players = []
         self.playerCount = playerCount
         self.spyPlayerIndex = Int.random(in: 0..<playerCount)
@@ -83,7 +85,7 @@ class Game {
     }
     
     func endGame() {
-        
+        gameIsOver = true
         print("endGame.activePlayers: \(activePlayers)")
         let spyCount = activePlayers.filter { $0.role == .spy }.count
         if spyCount >= 1 {

@@ -24,7 +24,11 @@ class GameOverViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func popToRoot(_ sender: Any) {
+        print("popToRoot")
+        dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

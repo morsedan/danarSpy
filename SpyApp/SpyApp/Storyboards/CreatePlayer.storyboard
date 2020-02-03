@@ -72,7 +72,7 @@
                         <outlet property="nameTextField" destination="NWW-gQ-X85" id="hc5-c8-Y1b"/>
                         <outlet property="roleLabel" destination="UTg-Qk-g57" id="3Bk-6s-jKk"/>
                         <outlet property="roleStackView" destination="qmb-8D-HLm" id="Oee-Ro-UrB"/>
-                        <segue destination="UIi-Wv-mhF" kind="show" identifier="ShowEliminatePlayerSegue" id="EOv-Ig-KMI"/>
+                        <segue destination="UIi-Wv-mhF" kind="presentation" identifier="ShowEliminatePlayerSegue" modalPresentationStyle="fullScreen" id="EOv-Ig-KMI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvh-WJ-0V3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

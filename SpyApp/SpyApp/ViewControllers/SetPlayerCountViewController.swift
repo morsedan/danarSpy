@@ -12,6 +12,7 @@ class SetPlayerCountViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var playerCountPickerView: UIPickerView!
     
     // MARK: - Properties
@@ -25,6 +26,16 @@ class SetPlayerCountViewController: UIViewController {
 
         playerCountPickerView.dataSource = self
         playerCountPickerView.delegate = self
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if game.gameIsOver {
+            stackView.isHidden = true
+            dismiss(animated: false, completion: nil)
+        }
     }
     
     // MARK: - Actions
