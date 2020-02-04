@@ -23,13 +23,9 @@ class GameOverTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
         setResultLabel()
-        print(game?.winningTeam)
+        
     }
     
     func setResultLabel() {
@@ -37,9 +33,9 @@ class GameOverTableViewController: UITableViewController {
             let winningTeam = game.winningTeam else { return }
         
         if winningTeam == .defender {
-            resultLabel.text = "Defenders win! (Round X)"
+            resultLabel.text = "Defenders win!"
         } else {
-            resultLabel.text = "Spy wins! (Round X)"
+            resultLabel.text = "Spy wins!"
         }
     }
 
