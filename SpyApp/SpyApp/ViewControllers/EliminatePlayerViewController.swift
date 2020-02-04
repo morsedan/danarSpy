@@ -67,7 +67,7 @@ class EliminatePlayerViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let gameOverVC = segue.destination as? GameOverViewController else { return }
+        guard let gameOverVC = segue.destination as? GameOverTableViewController else { return }
         
         gameOverVC.game = game
     }

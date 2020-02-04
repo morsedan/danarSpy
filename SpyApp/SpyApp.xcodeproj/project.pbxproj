@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0650BD323E91F7B0039A4E8 /* GameOverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0650BD223E91F7B0039A4E8 /* GameOverTableViewController.swift */; };
 		C0FF106F23E77D0E00E54968 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF106E23E77D0E00E54968 /* AppDelegate.swift */; };
 		C0FF107123E77D0E00E54968 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF107023E77D0E00E54968 /* SceneDelegate.swift */; };
 		C0FF107323E77D0E00E54968 /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF107223E77D0E00E54968 /* StartGameViewController.swift */; };
@@ -18,7 +19,6 @@
 		C0FF109523E77EFA00E54968 /* SetPlayerCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF109423E77EFA00E54968 /* SetPlayerCountViewController.swift */; };
 		C0FF109723E77F1F00E54968 /* CreatePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF109623E77F1F00E54968 /* CreatePlayerViewController.swift */; };
 		C0FF109923E77F4A00E54968 /* EliminatePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF109823E77F4A00E54968 /* EliminatePlayerViewController.swift */; };
-		C0FF109B23E77F5D00E54968 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF109A23E77F5D00E54968 /* GameOverViewController.swift */; };
 		C0FF109D23E77F7800E54968 /* SetPlayerCount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0FF109C23E77F7800E54968 /* SetPlayerCount.storyboard */; };
 		C0FF109F23E77F8A00E54968 /* CreatePlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0FF109E23E77F8A00E54968 /* CreatePlayer.storyboard */; };
 		C0FF10A123E77F9900E54968 /* EliminatePlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0FF10A023E77F9900E54968 /* EliminatePlayer.storyboard */; };
@@ -39,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C0650BD223E91F7B0039A4E8 /* GameOverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverTableViewController.swift; sourceTree = "<group>"; };
 		C0FF106B23E77D0E00E54968 /* SpyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FF106E23E77D0E00E54968 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0FF107023E77D0E00E54968 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		C0FF109423E77EFA00E54968 /* SetPlayerCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPlayerCountViewController.swift; sourceTree = "<group>"; };
 		C0FF109623E77F1F00E54968 /* CreatePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlayerViewController.swift; sourceTree = "<group>"; };
 		C0FF109823E77F4A00E54968 /* EliminatePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EliminatePlayerViewController.swift; sourceTree = "<group>"; };
-		C0FF109A23E77F5D00E54968 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		C0FF109C23E77F7800E54968 /* SetPlayerCount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetPlayerCount.storyboard; sourceTree = "<group>"; };
 		C0FF109E23E77F8A00E54968 /* CreatePlayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePlayer.storyboard; sourceTree = "<group>"; };
 		C0FF10A023E77F9900E54968 /* EliminatePlayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EliminatePlayer.storyboard; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 				C0FF109423E77EFA00E54968 /* SetPlayerCountViewController.swift */,
 				C0FF109623E77F1F00E54968 /* CreatePlayerViewController.swift */,
 				C0FF109823E77F4A00E54968 /* EliminatePlayerViewController.swift */,
-				C0FF109A23E77F5D00E54968 /* GameOverViewController.swift */,
+				C0650BD223E91F7B0039A4E8 /* GameOverTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -339,7 +339,6 @@
 				C0FF109923E77F4A00E54968 /* EliminatePlayerViewController.swift in Sources */,
 				C0FF109523E77EFA00E54968 /* SetPlayerCountViewController.swift in Sources */,
 				C0FF109323E77EC700E54968 /* Game.swift in Sources */,
-				C0FF109B23E77F5D00E54968 /* GameOverViewController.swift in Sources */,
 				C0FF108F23E77EB100E54968 /* ItemPair.swift in Sources */,
 				C0FF10B723E7843F00E54968 /* PropertyKeys.swift in Sources */,
 				C0FF107323E77D0E00E54968 /* StartGameViewController.swift in Sources */,
@@ -347,6 +346,7 @@
 				C0FF109723E77F1F00E54968 /* CreatePlayerViewController.swift in Sources */,
 				C0FF10B523E780CB00E54968 /* Player.swift in Sources */,
 				C0FF107123E77D0E00E54968 /* SceneDelegate.swift in Sources */,
+				C0650BD323E91F7B0039A4E8 /* GameOverTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
