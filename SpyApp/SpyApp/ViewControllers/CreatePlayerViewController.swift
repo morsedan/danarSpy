@@ -48,7 +48,7 @@ class CreatePlayerViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func okTapped(_ sender: Any) {
-        
+//        nameTextField.resignFirstResponder()
         addOrContinue()
     }
     
@@ -111,7 +111,7 @@ class CreatePlayerViewController: UIViewController {
 extension CreatePlayerViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
+        textField.resignFirstResponder()
         guard let name = nameTextField.text,
             !name.isEmpty else {
                 // TODO: Add alert telling player to enter their name
