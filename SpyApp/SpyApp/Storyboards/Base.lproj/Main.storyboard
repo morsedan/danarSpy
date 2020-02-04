@@ -20,15 +20,26 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JGn-P1-AvL" secondAttribute="height" id="11q-Js-kVR"/>
                                 </constraints>
-                                <state key="normal" title="New Game"/>
+                                <state key="normal" title="Pass 'n' Play"/>
                                 <connections>
                                     <action selector="startTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sNO-JH-6SX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6x-rk-QBH">
+                                <rect key="frame" x="20" y="64" width="374" height="177"/>
+                                <state key="normal" title="Bluetooth"/>
+                                <connections>
+                                    <segue destination="eja-rQ-feg" kind="show" id="grJ-In-Xt1"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="c6x-rk-QBH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2Ya-V6-xrz"/>
+                            <constraint firstItem="JGn-P1-AvL" firstAttribute="top" secondItem="c6x-rk-QBH" secondAttribute="bottom" constant="20" id="5BG-XP-5WR"/>
+                            <constraint firstItem="c6x-rk-QBH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Ehe-O8-OQY"/>
                             <constraint firstItem="JGn-P1-AvL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="IjH-j0-lcC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c6x-rk-QBH" secondAttribute="trailing" constant="20" id="U4p-wN-sID"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JGn-P1-AvL" secondAttribute="trailing" constant="20" id="V4g-Js-Wc8"/>
                             <constraint firstItem="JGn-P1-AvL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZOk-R5-gdK"/>
                             <constraint firstItem="JGn-P1-AvL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="o4f-7w-pBG"/>
@@ -43,6 +54,16 @@
             </objects>
             <point key="canvasLocation" x="139" y="136"/>
         </scene>
+        <!--BTEnterName-->
+        <scene sceneID="Q3O-YS-fOV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BTEnterName" id="eja-rQ-feg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Kvh-uq-VMC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pbU-Kv-WxT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="630" y="108"/>
+        </scene>
         <!--SetPlayerCount-->
         <scene sceneID="G0k-9C-a0M">
             <objects>
@@ -51,7 +72,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGe-oF-92U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="622" y="136"/>
+            <point key="canvasLocation" x="638" y="163"/>
         </scene>
     </scenes>
 </document>

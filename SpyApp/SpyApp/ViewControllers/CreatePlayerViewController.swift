@@ -84,7 +84,7 @@ class CreatePlayerViewController: UIViewController {
             // TODO: add alert that something went wrong
             return
         }
-        let role = game.addPlayer(named: player)
+        let role = game.addPlayer(named: player, isThisDevice: true)
         
         displayRole(with: role)
     }

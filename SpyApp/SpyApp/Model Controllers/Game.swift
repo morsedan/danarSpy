@@ -8,11 +8,21 @@
 
 import Foundation
 
+protocol PassPlayersDelegate {
+    func playersWerePassed(players: [Player])
+}
+
 class Game {
     
     // MARK: - Properties
-    var players: [Player] = []
-    lazy var activePlayers = players.filter { $0.isStillPlaying }
+    var playerForDevice: Player?
+    var players: [Player] = [] {
+        didSet {
+            print("Game.players.didSet")
+            delegate?.playersWerePassed(players: players)
+        }
+    }
+    lazy var activePlayers: [Player] = []
     var playerCount: Int = 0
     var gameIsOver = false
     private var spyPlayerIndex: Int = 0
@@ -22,46 +32,67 @@ class Game {
                              ItemPair(spyItem: "Leaf", defenderItem: "Flower"),
                              ItemPair(spyItem: "Dog", defenderItem: "Cat"),
                              ItemPair(spyItem: "Car", defenderItem: "Truck"),
-                             ItemPair(spyItem: "Motercycle", defenderItem: "Car"),
+                             ItemPair(spyItem: "Motorcycle", defenderItem: "Car"),
                              ItemPair(spyItem: "Coupe", defenderItem: "Sedan"),
                              ItemPair(spyItem: "Cat", defenderItem: "Mouse"),
                              ItemPair(spyItem: "Paw", defenderItem: "Hand"),
                              ItemPair(spyItem: "Table", defenderItem: "Chair"),
                              ItemPair(spyItem: "Plate", defenderItem: "Bowl"),
-                             ItemPair(spyItem: "Textbood", defenderItem: "Notebook"),
+                             ItemPair(spyItem: "Textbook", defenderItem: "Notebook"),
                              ItemPair(spyItem: "Lion", defenderItem: "Tiger"),
                              ItemPair(spyItem: "Horse", defenderItem: "Mule"),
                              ItemPair(spyItem: "Apple", defenderItem: "Orange")]
     private var itemPairsToChooseFrom: [ItemPair] = []
-    private var currentGameItemPair: ItemPair?
+    lazy private var currentGameItemPair: ItemPair = {
+        
+        print("Setting currentGameItemPair!")
+        if itemPairsToChooseFrom.isEmpty {
+            itemPairsToChooseFrom = itemPairs
+        }
+        let index = Int.random(in: 0..<itemPairsToChooseFrom.count)
+        
+        return itemPairsToChooseFrom.remove(at: index)
+    }()// TODO: Change this to be dynamic
     var winningTeam: RoleType?
+    var delegate: PassPlayersDelegate?
     
     // MARK: - Game Methods
     
     func startGame(with playerCount: Int) {
+        // TODO: This needs to be broken up for beginning a BT game
         gameIsOver = false
         players = []
+        activePlayers = []
         self.playerCount = playerCount
         self.spyPlayerIndex = Int.random(in: 0..<playerCount)
         currentGameItemPair = setItemPair()
     }
     
-    func addPlayer(named name: String) -> String {
+    @discardableResult func addPlayer(named name: String, isThisDevice: Bool) -> String {
+        // TODO: This needs to be broken up for beginning a BT game
+//        currentGameItemPair = setItemPair()
         
-        guard let itemPair = currentGameItemPair else { return "Error"}
         
         if players.count == spyPlayerIndex {
-            let player = Player(name: name, role: .spy, isStillPlaying: true)
+            let player =  Player(name: name, role: .spy)
+            if isThisDevice {
+                playerForDevice = player
+            }
             players.append(player)
+            activePlayers = players
             
-            let role = itemPair.spyItem
+            let role = currentGameItemPair.spyItem
             
             return role
         } else {
-            let player = Player(name: name, role: .defender, isStillPlaying: true)
+            let player = Player(name: name, role: .defender)
+            if isThisDevice {
+                playerForDevice = player
+            }
             players.append(player)
+            activePlayers = players
             
-            let role = itemPair.defenderItem
+            let role = currentGameItemPair.defenderItem
             
             return role
         }
@@ -69,8 +100,8 @@ class Game {
     
     func eliminatePlayerAndContinue(_ player: Player) -> Bool {
         
-//        guard let index = players.firstIndex(of: player) else { return false }
-//        players[index].isStillPlaying = false
+        //        guard let index = players.firstIndex(of: player) else { return false }
+        //        players[index].isStillPlaying = false
         
         guard let index = activePlayers.firstIndex(of: player) else { return true }
         activePlayers.remove(at: index)
@@ -112,4 +143,31 @@ class Game {
         
         return itemPairsToChooseFrom.remove(at: index)
     }
+}
+
+extension Game: PlayerServiceDelegate {
+    func connectedDevicesChanged(manager: PlayerService, connectedDevices: [String]) {
+        print("connectedDevicesChanged: \(connectedDevices.count)")
+        for connectedDevice in connectedDevices {
+            addPlayer(named: connectedDevice, isThisDevice: false)
+        }
+
+        let nameArray = players.compactMap { $0.name }
+        let names = Array(Set<String>(nameArray))
+        var tempPlayers: [Player] = []
+        for name in names {
+            if let playerIndex = names.firstIndex(of: name) {
+                tempPlayers.append(players[playerIndex])
+            }
+        }
+        players = tempPlayers // Set spyPlayerIndex?
+        
+    }
+    
+    func playersChanged(manager: PlayerService, players: /*(*/[Player]/*, ItemPair)*/) {
+//        self.players = players
+//        print(players)
+    }
+    
+    
 }
