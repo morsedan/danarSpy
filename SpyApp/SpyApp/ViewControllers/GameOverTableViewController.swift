@@ -37,9 +37,9 @@ class GameOverTableViewController: UITableViewController {
             let winningTeam = game.winningTeam else { return }
         
         if winningTeam == .defender {
-            resultLabel.text = "Defenders win! (Round X)"
+            resultLabel.text = "Defenders win!"
         } else {
-            resultLabel.text = "Spy wins! (Round X)"
+            resultLabel.text = "Spy wins!"
         }
     }
 
