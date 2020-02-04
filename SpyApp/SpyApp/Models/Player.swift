@@ -18,4 +18,5 @@ struct Player: Codable, Equatable {
     let id: String = UUID().uuidString
     let role: RoleType
     var isStillPlaying: Bool
+    var eliminatedInRound: Int = 0
 }
