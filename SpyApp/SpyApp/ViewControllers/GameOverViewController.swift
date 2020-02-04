@@ -25,7 +25,6 @@ class GameOverViewController: UIViewController {
     }
     
     @IBAction func popToRoot(_ sender: Any) {
-        print("popToRoot")
         dismiss(animated: true, completion: nil)
     }
     
