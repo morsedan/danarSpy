@@ -34,6 +34,7 @@ class Game {
                              ItemPair(spyItem: "Apple", defenderItem: "Orange")]
     private var itemPairsToChooseFrom: [ItemPair] = []
     private var currentGameItemPair: ItemPair?
+    var winningTeam: RoleType?
     
     // MARK: - Game Methods
     
@@ -74,10 +75,14 @@ class Game {
         guard let index = activePlayers.firstIndex(of: player) else { return true }
         activePlayers.remove(at: index)
         
+        guard let playerIndex = players.firstIndex(of: player) else { return true }
+        players[playerIndex].eliminatedInRound = players.count - activePlayers.count
+        
         if player.role == .spy {
             endGame()
             return false
         } else if activePlayers.count <= 2 {
+            winningTeam = .defender
             endGame()
             return false
         }
@@ -89,8 +94,10 @@ class Game {
         print("endGame.activePlayers: \(activePlayers)")
         let spyCount = activePlayers.filter { $0.role == .spy }.count
         if spyCount >= 1 {
+            winningTeam = .spy
             print("Spy wins!")
         } else {
+            winningTeam = .defender
             print("Defenders win!")
         }
     }
