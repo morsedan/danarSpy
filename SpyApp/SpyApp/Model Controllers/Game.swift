@@ -12,7 +12,7 @@ protocol PassPlayersDelegate {
     func playersWerePassed(players: [Player])
 }
 
-class Game {`
+class Game {
     
     // MARK: - Properties
     
