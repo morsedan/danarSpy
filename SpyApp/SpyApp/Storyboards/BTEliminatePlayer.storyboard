@@ -21,16 +21,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="PKQ-C6-KWY">
+                                <rect key="frame" x="163" y="419.5" width="88" height="57.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Players" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dG9-Ow-vVN">
+                                        <rect key="frame" x="0.0" y="0.0" width="88" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="en4-UK-kAm">
+                                        <rect key="frame" x="0.0" y="27.5" width="88" height="30"/>
+                                        <state key="normal" title="ShowPlayers"/>
+                                        <connections>
+                                            <action selector="showPlayers:" destination="Z6C-Fv-lSC" eventType="touchUpInside" id="xrm-p0-0q8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="PKQ-C6-KWY" firstAttribute="centerX" secondItem="ZPU-pm-wfk" secondAttribute="centerX" id="PDh-Wm-Wvc"/>
                             <constraint firstItem="hg3-11-f5d" firstAttribute="top" secondItem="qal-Mn-AiF" secondAttribute="top" constant="20" id="hEp-nv-mmx"/>
                             <constraint firstItem="hg3-11-f5d" firstAttribute="leading" secondItem="qal-Mn-AiF" secondAttribute="leading" constant="20" id="tve-Iq-yC7"/>
                             <constraint firstItem="qal-Mn-AiF" firstAttribute="trailing" secondItem="hg3-11-f5d" secondAttribute="trailing" constant="20" id="yra-xb-zj9"/>
+                            <constraint firstItem="PKQ-C6-KWY" firstAttribute="centerY" secondItem="ZPU-pm-wfk" secondAttribute="centerY" id="ziJ-mn-pbc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qal-Mn-AiF"/>
                     </view>
                     <connections>
+                        <outlet property="playerListLabel" destination="dG9-Ow-vVN" id="nDw-U1-2Z8"/>
                         <outlet property="playersIDLabel" destination="hg3-11-f5d" id="9SJ-TD-Bdp"/>
                     </connections>
                 </viewController>

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MultipeerConnectivity
 
 enum RoleType: String, Codable {
     case spy = "Spy"

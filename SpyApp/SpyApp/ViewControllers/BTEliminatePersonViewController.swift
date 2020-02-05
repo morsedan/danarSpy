@@ -14,6 +14,7 @@ class BTEliminatePersonViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var playersIDLabel: UILabel!
+    @IBOutlet weak var playerListLabel: UILabel!
     
     // MARK: - Properties
     
@@ -28,7 +29,11 @@ class BTEliminatePersonViewController: UIViewController {
 //        print(playerService.delegate.debugDescription)
     }
     
-
+    @IBAction func showPlayers(_ sender: Any) {
+        let players = game?.players
+        playerListLabel.text = "\(players?.compactMap { $0.name }.joined(separator: ", ") ?? "No Players yet")"
+    }
+    
     
     // MARK: - Navigation
 
@@ -44,8 +49,8 @@ extension BTEliminatePersonViewController: PassPlayersDelegate {
     func playersWerePassed(players: [Player]) {
         print("playersWerePassed")
         DispatchQueue.main.async {
-            self.playersIDLabel.text = String(players.count)
-            players.map { print($0.name) }
+            self.playersIDLabel.text = "\(players.count)\n\(players.map { $0.name })"
+            _ = players.map { print($0.name) }
         }
     }
     

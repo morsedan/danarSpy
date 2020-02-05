@@ -9,10 +9,19 @@
 import UIKit
 import MultipeerConnectivity
 
+enum MessageType: Int, Codable {
+    case assignRoles // dict "name": "role" from GM
+    case guessSpy // "name" if GM, tally votes-when match activePlayers.count send verdict
+    case eliminatedPlayer // "name" if self name matches, display eliminated UI, everyone else eliminates it from activePlayers array
+    case gameOver // announce winner .spy/.defender (RoleType)
+    
+}
+
 protocol PlayerServiceDelegate {
     
     func connectedDevicesChanged(manager : PlayerService, connectedDevices: [String])
     func playersChanged(manager : PlayerService, players: [Player])
+    func newPlayerJoined(playerName: String)
     
 }
 
@@ -58,8 +67,10 @@ class PlayerService : NSObject {
         self.serviceBrowser.stopBrowsingForPeers()
     }
     
+    // MARK: - Send
+    
     func send(players: [Player]) {
-        NSLog("%@", "sendPlayers: \(players.count) to \(session.connectedPeers.count) peers")
+        print("sendPlayers: \(players.count) to \(session.connectedPeers.count) peers")
         
         if session.connectedPeers.count > 0 {
             do {
@@ -69,7 +80,7 @@ class PlayerService : NSObject {
                 try self.session.send(jsonData, toPeers: session.connectedPeers, with: .reliable)
             }
             catch let error {
-                NSLog("%@", "Error sending [Player]: \(error)")
+                print("Error sending [Player]: \(error)")
             }
         }
     }
@@ -78,11 +89,11 @@ class PlayerService : NSObject {
 extension PlayerService : MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
-        NSLog("%@", "didNotStartAdvertisingPeer: \(error)")
+        print("didNotStartAdvertisingPeer: \(error)")
     }
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-        NSLog("%@", "didReceiveInvitationFromPeer \(peerID)")
+        print("didReceiveInvitationFromPeer \(peerID)")
         invitationHandler(true, self.session)
     }
     
@@ -91,31 +102,50 @@ extension PlayerService : MCNearbyServiceAdvertiserDelegate {
 extension PlayerService : MCNearbyServiceBrowserDelegate {
     
     func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
-        NSLog("%@", "didNotStartBrowsingForPeers: \(error)")
+        print("didNotStartBrowsingForPeers: \(error)")//print("didNotStartBrowsingForPeers: \(error)")
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-        NSLog("%@", "foundPeer: \(peerID)")
-        NSLog("%@", "invitePeer: \(peerID)")
+        print("foundPeer: \(peerID)") //print("foundPeer: \(peerID)")
+        print("invitePeer: \(peerID)")//print("invitePeer: \(peerID)")
         browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-        NSLog("%@", "lostPeer: \(peerID)")
+        print("lostPeer: \(peerID)")//print("lostPeer: \(peerID)")
     }
     
 }
 
+
+
 extension PlayerService : MCSessionDelegate {
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        NSLog("%@", "peer \(peerID) didChangeState: \(state.rawValue)")
-        self.delegate?.connectedDevicesChanged(manager: self, connectedDevices:
-            session.connectedPeers.map{$0.displayName})
+        
+        // TODO only do somethign if they connect
+        
+        switch state {
+        case .connected:
+            self.delegate?.newPlayerJoined(playerName: peerID.displayName)
+            
+//            self.delegate?.connectedDevicesChanged(manager: self, connectedDevices:
+//                session.connectedPeers.map{$0.displayName})
+                print("peer \(peerID) didChangeState: connected")
+        case .connecting:
+            print("Connecting")
+        case .notConnected:
+            print("not connected")
+        @unknown default:
+            fatalError("Invalid state")
+        }
+        
     }
     
+    // MARK: - Recieve
+    
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        NSLog("%@", "didReceiveData: \(data)")
+        print("didReceiveData: \(data)")
         
         let jsonDecoder = JSONDecoder()
         do {
@@ -125,20 +155,20 @@ extension PlayerService : MCSessionDelegate {
             //                print("Player name: \(player.name) Votes: \(player.voteCount)")
             //            }
         } catch {
-            NSLog("%@", "Error processing data: \(error)")
+            print("Error processing data: \(error)")
         }
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
-        NSLog("%@", "didReceiveStream")
+        print("didReceiveStream")
     }
     
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-        NSLog("%@", "didStartReceivingResourceWithName")
+        print("didStartReceivingResourceWithName")
     }
     
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
-        NSLog("%@", "didFinishReceivingResourceWithName")
+        print("didFinishReceivingResourceWithName")
     }
     
 }

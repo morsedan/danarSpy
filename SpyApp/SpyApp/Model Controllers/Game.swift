@@ -15,10 +15,13 @@ protocol PassPlayersDelegate {
 class Game {
     
     // MARK: - Properties
+    
+    var actingAsGM: Bool = false
     var playerForDevice: Player?
     var players: [Player] = [] {
         didSet {
             print("Game.players.didSet")
+            
             delegate?.playersWerePassed(players: players)
         }
     }
@@ -160,13 +163,18 @@ extension Game: PlayerServiceDelegate {
                 tempPlayers.append(players[playerIndex])
             }
         }
-        players = tempPlayers // Set spyPlayerIndex?
+        players = tempPlayers.sorted { $0.name < $1.name } // Set spyPlayerIndex?
+        print(players.compactMap { $0.name })
         
     }
     
     func playersChanged(manager: PlayerService, players: /*(*/[Player]/*, ItemPair)*/) {
 //        self.players = players
 //        print(players)
+    }
+    
+    func newPlayerJoined(playerName: String) {
+        addPlayer(named: playerName, isThisDevice: false)
     }
     
     

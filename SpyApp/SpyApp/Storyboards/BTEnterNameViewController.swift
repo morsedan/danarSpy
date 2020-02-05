@@ -77,6 +77,7 @@ class BTEnterNameViewController: UIViewController {
 
 extension BTEnterNameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         createOrJoinGame()
         return true
     }
