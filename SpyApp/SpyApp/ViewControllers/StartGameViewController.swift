@@ -9,18 +9,35 @@
 import UIKit
 
 class StartGameViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        clearUserDefaults()
-//        UserDefaults.standard.setValue("", forKey: PropertyKeys.displayNameKey)
+        
+        checkUserDefaultsName()
+        //        UserDefaults.standard.setValue("", forKey: PropertyKeys.displayNameKey)
+//        print(UserDefaults.standard.string(forKey: PropertyKeys.displayNameKey))
     }
     
-    func clearUserDefaults() {
+    func setName() {
+        UserDefaults.standard.set(UUID().uuidString, forKey: PropertyKeys.displayNameKey)
+    }
+    
+    func checkUserDefaultsName() {
+        guard let displayName = UserDefaults.standard.string(forKey: PropertyKeys.displayNameKey),
+            let _ = UUID(uuidString: displayName) else {
+                print("Changing ID")
+                setName()
+                return
+        }
+        print("ID OK")
+//        if displayName.count != 36 {
+//            setName()
+//        }
         
-//        guard let domain = Bundle.main.bundleIdentifier else { return }
-//        UserDefaults.standard.removeObject(forKey: PropertyKeys.displayNameKey)
-//        UserDefaults.standard.synchronize()
+        
+        //        guard let domain = Bundle.main.bundleIdentifier else { return }
+        //        UserDefaults.standard.removeObject(forKey: PropertyKeys.displayNameKey)
+        //        UserDefaults.standard.synchronize()
 //        print(UserDefaults.standard.dictionaryRepresentation().keys)
     }
     
@@ -28,7 +45,7 @@ class StartGameViewController: UIViewController {
         performSegue(withIdentifier: PropertyKeys.setCountSegue, sender: self)
     }
     
-
-
+    
+    
 }
 

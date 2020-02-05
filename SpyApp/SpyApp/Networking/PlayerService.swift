@@ -41,7 +41,7 @@ class PlayerService : NSObject {
     
     
     override init() {
-        
+        print("Display Name Key/Peer ID: \(myPeerId)")
         self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: PlayerServiceType)
         self.serviceBrowser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: PlayerServiceType)
         
@@ -121,10 +121,10 @@ extension PlayerService : MCSessionDelegate {
         let jsonDecoder = JSONDecoder()
         do {
             let players = try jsonDecoder.decode([Player].self, from: data)
-//            self.delegate?.playersChanged(manager: self, players: players)
-            //            for player in players {
-            //                print("Player name: \(player.name) Votes: \(player.voteCount)")
-            //            }
+            self.delegate?.playersChanged(manager: self, players: players)
+                        for player in players {
+                            print("Player name: \(player.name) Votes: \(player.voteCount)")
+                        }
         } catch {
             NSLog("%@", "Error processing data: \(error)")
         }

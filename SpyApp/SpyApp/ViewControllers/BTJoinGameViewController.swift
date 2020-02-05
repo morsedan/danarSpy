@@ -75,7 +75,7 @@ extension BTJoinGameViewController: PassPlayersDelegate {
         print("playersWerePassed")
         let playerNames = players.compactMap { $0.name }
         DispatchQueue.main.async {
-            self.playersIDLabel?.text = playerNames.joined(separator: ", ")
+            self.playersIDLabel?.text = "\(players.count)\n\(playerNames.joined(separator: ", "))"
         }
     }
     
@@ -89,7 +89,7 @@ extension BTJoinGameViewController: UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        print(textField.text)
-    }
+//    func textFieldDidChangeSelection(_ textField: UITextField) {
+//        print(textField.text)
+//    }
 }

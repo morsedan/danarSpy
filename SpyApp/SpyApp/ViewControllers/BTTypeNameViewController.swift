@@ -24,16 +24,16 @@ class BTTypeNameViewController: UIViewController {
     }
     
     func setName() {
-        guard let name = nameTextField.text,
-            !name.isEmpty else { return }
-        let userDefaults = UserDefaults.standard
-        userDefaults.setValue(name, forKey: PropertyKeys.displayNameKey)
+//        guard let name = nameTextField.text,
+//            !name.isEmpty else { return }
+//        let userDefaults = UserDefaults.standard
+//        userDefaults.setValue(name, forKey: PropertyKeys.displayNameKey)
     }
     
     @IBAction func okTapped(_ sender: Any) {
-        let userDefaults = UserDefaults.standard
-        let name = userDefaults.string(forKey: PropertyKeys.displayNameKey)
-        print(name)
+//        let userDefaults = UserDefaults.standard
+//        let name = userDefaults.string(forKey: PropertyKeys.displayNameKey)
+//        print(name)
         performSegue(withIdentifier: PropertyKeys.showWaitingSegue, sender: self)
     }
     
@@ -53,6 +53,7 @@ extension BTTypeNameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         resignFirstResponder()
 //        createOrJoinGame()
+        okTapped(textField)
         
         return true
     }
@@ -60,7 +61,7 @@ extension BTTypeNameViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let text = textField.text else { return }
         print(text)
-        let userDefaults = UserDefaults.standard
-        userDefaults.setValue(text, forKey: PropertyKeys.displayNameKey)
+//        let userDefaults = UserDefaults.standard
+//        userDefaults.setValue(text, forKey: PropertyKeys.displayNameKey)
     }
 }
