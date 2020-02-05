@@ -146,6 +146,7 @@ class Game {
 }
 
 extension Game: PlayerServiceDelegate {
+    
     func connectedDevicesChanged(manager: PlayerService, connectedDevices: [String]) {
         print("connectedDevicesChanged: \(connectedDevices.count)")
         for connectedDevice in connectedDevices {
@@ -160,13 +161,25 @@ extension Game: PlayerServiceDelegate {
                 tempPlayers.append(players[playerIndex])
             }
         }
-        players = tempPlayers // Set spyPlayerIndex?
+        players = tempPlayers.sorted { $0.name < $1.name } // Set spyPlayerIndex?
+        
+        guard let thisPlayer = playerForDevice else { return }
+        let gameInfo = (thisPlayer: thisPlayer, newPlayers: players, currentPair: currentGameItemPair, spyIndex: spyPlayerIndex)
+        gameInfoEstablished(manager: manager, gameInfo: gameInfo)
         
     }
     
-    func playersChanged(manager: PlayerService, players: /*(*/[Player]/*, ItemPair)*/) {
-//        self.players = players
-//        print(players)
+    func gameInfoEstablished(manager: PlayerService, gameInfo: (Player, [Player], ItemPair, Int)) {
+        
+        if gameInfo.0.name == players[0].name {
+            players = gameInfo.1
+            currentGameItemPair = gameInfo.2
+            spyPlayerIndex = gameInfo.3
+        }
+    }
+    
+    func playersChanged(manager: PlayerService, players: [Player]) {
+        
     }
     
     

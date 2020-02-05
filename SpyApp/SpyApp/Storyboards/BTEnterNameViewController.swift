@@ -19,36 +19,20 @@ class BTEnterNameViewController: UIViewController {
     
     // MARK: - Properties
     
-    let game = Game()
+    var game: Game?
     
     // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        nameTextField.delegate = self
-        requestName()
+        game?.delegate = self
+//        nameTextField.delegate = self
     }
     
+    //TODO: connect here not in the next VC
 
-    func createOrJoinGame() {
-        guard let name = nameTextField.text,
-            !name.isEmpty else { return }
-        let role = game.addPlayer(named: name, isThisDevice: true)
-        print("game.players.count: \(game.players.count)")
-        let userDefaults = UserDefaults.standard
-        userDefaults.setValue(name, forKey: PropertyKeys.displayNameKey)
-        
-        displayRole(with: role)
-    }
     
-    private func requestName() {
-        
-        nameTextField.text = ""
-        nameTextField.becomeFirstResponder()
-        roleStackView.isHidden = true
-        nameStackView.isHidden = false
-    }
     
     private func displayRole(with role: String) {
         
@@ -77,7 +61,13 @@ class BTEnterNameViewController: UIViewController {
 
 extension BTEnterNameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        createOrJoinGame()
+//        createOrJoinGame()
         return true
+    }
+}
+
+extension BTEnterNameViewController: PassPlayersDelegate {
+    func playersWerePassed(players: [Player]) {
+        
     }
 }

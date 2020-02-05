@@ -25,7 +25,6 @@ class BTEliminatePersonViewController: UIViewController {
         
         playerService.delegate = game
         game?.delegate = self
-//        print(playerService.delegate.debugDescription)
     }
     
 

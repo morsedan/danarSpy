@@ -13,6 +13,9 @@
 		C0650BDB23E9F2C80039A4E8 /* BTEliminatePlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0650BDA23E9F2C80039A4E8 /* BTEliminatePlayer.storyboard */; };
 		C0650BDD23E9F3080039A4E8 /* BTEliminatePersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0650BDC23E9F3080039A4E8 /* BTEliminatePersonViewController.swift */; };
 		C0650BDF23E9F3A80039A4E8 /* PlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0650BDE23E9F3A80039A4E8 /* PlayerService.swift */; };
+		C0650C0123EA4C2D0039A4E8 /* JoinGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0650C0023EA4C2D0039A4E8 /* JoinGame.storyboard */; };
+		C0650C0323EA4C610039A4E8 /* BTJoinGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0650C0223EA4C610039A4E8 /* BTJoinGameViewController.swift */; };
+		C0650C0523EA62B80039A4E8 /* BTTypeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0650C0423EA62B80039A4E8 /* BTTypeNameViewController.swift */; };
 		C0FF106F23E77D0E00E54968 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF106E23E77D0E00E54968 /* AppDelegate.swift */; };
 		C0FF107123E77D0E00E54968 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF107023E77D0E00E54968 /* SceneDelegate.swift */; };
 		C0FF107323E77D0E00E54968 /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF107223E77D0E00E54968 /* StartGameViewController.swift */; };
@@ -50,6 +53,9 @@
 		C0650BDA23E9F2C80039A4E8 /* BTEliminatePlayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BTEliminatePlayer.storyboard; sourceTree = "<group>"; };
 		C0650BDC23E9F3080039A4E8 /* BTEliminatePersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTEliminatePersonViewController.swift; sourceTree = "<group>"; };
 		C0650BDE23E9F3A80039A4E8 /* PlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerService.swift; sourceTree = "<group>"; };
+		C0650C0023EA4C2D0039A4E8 /* JoinGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JoinGame.storyboard; sourceTree = "<group>"; };
+		C0650C0223EA4C610039A4E8 /* BTJoinGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTJoinGameViewController.swift; sourceTree = "<group>"; };
+		C0650C0423EA62B80039A4E8 /* BTTypeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTTypeNameViewController.swift; sourceTree = "<group>"; };
 		C0FF106B23E77D0E00E54968 /* SpyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FF106E23E77D0E00E54968 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0FF107023E77D0E00E54968 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +148,8 @@
 			children = (
 				C0650BDC23E9F3080039A4E8 /* BTEliminatePersonViewController.swift */,
 				C0650BD823E9E9510039A4E8 /* BTEnterNameViewController.swift */,
+				C0650C0223EA4C610039A4E8 /* BTJoinGameViewController.swift */,
+				C0650C0423EA62B80039A4E8 /* BTTypeNameViewController.swift */,
 				C0FF107223E77D0E00E54968 /* StartGameViewController.swift */,
 				C0FF109423E77EFA00E54968 /* SetPlayerCountViewController.swift */,
 				C0FF109623E77F1F00E54968 /* CreatePlayerViewController.swift */,
@@ -156,6 +164,7 @@
 			children = (
 				C0650BDA23E9F2C80039A4E8 /* BTEliminatePlayer.storyboard */,
 				C0650BD623E9E8F10039A4E8 /* BTEnterName.storyboard */,
+				C0650C0023EA4C2D0039A4E8 /* JoinGame.storyboard */,
 				C0FF107423E77D0E00E54968 /* Main.storyboard */,
 				C0FF109C23E77F7800E54968 /* SetPlayerCount.storyboard */,
 				C0FF109E23E77F8A00E54968 /* CreatePlayer.storyboard */,
@@ -327,6 +336,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0650C0123EA4C2D0039A4E8 /* JoinGame.storyboard in Resources */,
 				C0FF107B23E77D0E00E54968 /* LaunchScreen.storyboard in Resources */,
 				C0650BD723E9E8F10039A4E8 /* BTEnterName.storyboard in Resources */,
 				C0FF107823E77D0E00E54968 /* Assets.xcassets in Resources */,
@@ -354,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0FF109923E77F4A00E54968 /* EliminatePlayerViewController.swift in Sources */,
+				C0650C0523EA62B80039A4E8 /* BTTypeNameViewController.swift in Sources */,
 				C0FF109523E77EFA00E54968 /* SetPlayerCountViewController.swift in Sources */,
 				C0FF109323E77EC700E54968 /* Game.swift in Sources */,
 				C0FF108F23E77EB100E54968 /* ItemPair.swift in Sources */,
@@ -363,6 +374,7 @@
 				C0FF106F23E77D0E00E54968 /* AppDelegate.swift in Sources */,
 				C0650BDF23E9F3A80039A4E8 /* PlayerService.swift in Sources */,
 				C0FF109723E77F1F00E54968 /* CreatePlayerViewController.swift in Sources */,
+				C0650C0323EA4C610039A4E8 /* BTJoinGameViewController.swift in Sources */,
 				C0FF10B523E780CB00E54968 /* Player.swift in Sources */,
 				C0FF107123E77D0E00E54968 /* SceneDelegate.swift in Sources */,
 				C0650BD923E9E9510039A4E8 /* BTEnterNameViewController.swift in Sources */,

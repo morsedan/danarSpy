@@ -12,7 +12,16 @@ class StartGameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        clearUserDefaults()
+//        UserDefaults.standard.setValue("", forKey: PropertyKeys.displayNameKey)
+    }
+    
+    func clearUserDefaults() {
+        
+//        guard let domain = Bundle.main.bundleIdentifier else { return }
+//        UserDefaults.standard.removeObject(forKey: PropertyKeys.displayNameKey)
+//        UserDefaults.standard.synchronize()
+//        print(UserDefaults.standard.dictionaryRepresentation().keys)
     }
     
     @IBAction func startTapped(_ sender: Any) {

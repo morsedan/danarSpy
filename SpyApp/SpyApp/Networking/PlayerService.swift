@@ -12,6 +12,7 @@ import MultipeerConnectivity
 protocol PlayerServiceDelegate {
     
     func connectedDevicesChanged(manager : PlayerService, connectedDevices: [String])
+    func gameInfoEstablished(manager: PlayerService, gameInfo: (Player, [Player], ItemPair, Int))
     func playersChanged(manager : PlayerService, players: [Player])
     
 }
@@ -120,7 +121,7 @@ extension PlayerService : MCSessionDelegate {
         let jsonDecoder = JSONDecoder()
         do {
             let players = try jsonDecoder.decode([Player].self, from: data)
-            self.delegate?.playersChanged(manager: self, players: players)
+//            self.delegate?.playersChanged(manager: self, players: players)
             //            for player in players {
             //                print("Player name: \(player.name) Votes: \(player.voteCount)")
             //            }
