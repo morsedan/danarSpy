@@ -12,7 +12,7 @@ protocol PassPlayersDelegate {
     func playersWerePassed(players: [Player])
 }
 
-class Game {
+class Game {`
     
     // MARK: - Properties
     
@@ -146,6 +146,15 @@ class Game {
         
         return itemPairsToChooseFrom.remove(at: index)
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 extension Game: PlayerServiceDelegate {
