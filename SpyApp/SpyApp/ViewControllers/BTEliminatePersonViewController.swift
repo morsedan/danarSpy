@@ -19,7 +19,7 @@ class BTEliminatePersonViewController: UIViewController {
     // MARK: - Properties
     
     var game: Game?
-    let playerService = PlayerService()
+//    let playerService = PlayerService()
     var playersToPotentiallyEliminate: [String] = []
 
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ class BTEliminatePersonViewController: UIViewController {
         
         pickerView.delegate = self
         pickerView.dataSource = self
-        playerService.delegate = game
+//        playerService.delegate = game
         game?.delegate = self
         
         guard let game = game else { return }

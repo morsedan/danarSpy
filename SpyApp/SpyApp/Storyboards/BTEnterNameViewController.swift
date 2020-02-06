@@ -37,9 +37,10 @@ class BTEnterNameViewController: UIViewController {
             !name.isEmpty else { return }
         let userDefaults = UserDefaults.standard
         userDefaults.setValue(name, forKey: PropertyKeys.displayNameKey)
-        game.addPlayer(named: name, isThisDevice: true)
-        print(
-            userDefaults.string(forKey: PropertyKeys.displayNameKey))
+        
+        game.addSelfAsPlayer(named: name)
+//        game.addPlayer(named: name, isThisDevice: true)
+//        print(userDefaults.string(forKey: PropertyKeys.displayNameKey))
     }
     
     private func requestName() {

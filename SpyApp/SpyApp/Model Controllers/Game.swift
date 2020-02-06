@@ -19,6 +19,8 @@ class Game {
     
     // MARK: - Properties
     
+    lazy var playerService = PlayerService()
+    
     var actingAsGM: Bool = false
     var playerForDevice: Player?
     var players: [Player] = [] {
@@ -86,6 +88,7 @@ class Game {
                 playerForDevice = player
             }
             players.append(player)
+            players = players.sorted { $0.name < $1.name }
             activePlayers = players
             
             let role = currentGameItemPair.spyItem
@@ -97,6 +100,7 @@ class Game {
                 playerForDevice = player
             }
             players.append(player)
+            players = players.sorted { $0.name < $1.name }
             activePlayers = players
             
             let role = currentGameItemPair.defenderItem
@@ -157,10 +161,27 @@ class Game {
 extension Game {
     func assignRoles() {
         
+        // figure out roles
+        // set the dict
+        
+        for player in players {
+            if player == playerForDevice {
+                roleDictionary["GM"] = player.name
+                let messageData = createMessage(messageType: .assignRoles)
+                
+            }
+        }
+        
+        
+        
+        
+        // send msg
     }
     
     func broadcastEliminatedPlayer() {
         
+        
+
     }
     
     func broadcastGameOver() {
@@ -172,6 +193,11 @@ extension Game {
 // MARK: - Client Logic
 
 extension Game {
+    func addSelfAsPlayer(named name: String) {
+        addPlayer(named: name, isThisDevice: true)
+        playerService.delegate = self
+    }
+    
     func receiveRole() {
         
     }
@@ -182,6 +208,8 @@ extension Game {
     
     func eliminatePlayer() {
         
+        //        guard let index = activePlayers.firstIndex(of: player) else { return true }
+        //        activePlayers.remove(at: index)
     }
     
     func btEndGame() {

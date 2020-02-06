@@ -26,15 +26,22 @@ class BTAssignRoleViewController: UIViewController {
             print("Got the game in assignRole!")
         }
     }
-    let playerService = PlayerService()
+//    let playerService = PlayerService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         guard let game = game else { return }
-        playerService.delegate = game
+//        playerService.delegate = game
         game.delegate = self
+        updateViews()
+    }
+    
+    func updateViews() {
+        guard let game = game else { return }
+        let playersArray = game.players.map { $0.name }
+        playersLabel.text = playersArray.joined(separator: ", ")
     }
     
     // MARK: - Actions
