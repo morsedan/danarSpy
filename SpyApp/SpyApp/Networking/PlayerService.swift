@@ -9,14 +9,14 @@
 import UIKit
 import MultipeerConnectivity
 
-enum MessageType: Int, Codable {
-    case assignRoles // dict "name": "role" from GM
-    
-    case guessSpy // "name" if GM, tally votes-when match activePlayers.count send verdict
-    case eliminatedPlayer // "name" or playerID or player if self name matches, display eliminated UI, everyone else eliminates it from activePlayers array
-    case gameOver // announce winner .spy/.defender (RoleType)
-    
-}
+//enum MessageType: Int, Codable {
+//    case assignRoles // dict "name": "role" from GM
+//    
+//    case guessSpy // "name" if GM, tally votes-when match activePlayers.count send verdict
+//    case eliminatedPlayer // "name" or playerID or player if self name matches, display eliminated UI, everyone else eliminates it from activePlayers array
+//    case gameOver // announce winner .spy/.defender (RoleType)
+//    
+//}
 
 protocol PlayerServiceDelegate {
     

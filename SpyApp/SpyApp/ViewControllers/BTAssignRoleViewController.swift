@@ -34,6 +34,7 @@ class BTAssignRoleViewController: UIViewController {
         // Do any additional setup after loading the view.
         guard let game = game else { return }
         playerService.delegate = game
+        game.delegate = self
     }
     
     // MARK: - Actions
@@ -84,8 +85,9 @@ extension BTAssignRoleViewController: PassPlayersDelegate {
     func playerWasAdded() {
         guard let game = game else { return }
         let playersArray = game.players.map { $0.name }
-        
-        playersLabel.text = playersArray.joined(separator: ", ")
+        DispatchQueue.main.async {
+            self.playersLabel.text = playersArray.joined(separator: ", ")
+        }
         
     }
     

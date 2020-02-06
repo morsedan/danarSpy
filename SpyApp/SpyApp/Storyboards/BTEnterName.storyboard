@@ -136,7 +136,6 @@
                                         <state key="normal" title="OK"/>
                                         <connections>
                                             <action selector="playersOKTapped:" destination="nrD-Xk-pmb" eventType="touchUpInside" id="guy-GY-KKI"/>
-                                            <action selector="roleOKTapped:" destination="nrD-Xk-pmb" eventType="touchUpInside" id="Pu5-jW-6c0"/>
                                         </connections>
                                     </button>
                                 </subviews>

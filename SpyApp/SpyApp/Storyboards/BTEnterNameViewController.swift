@@ -37,14 +37,16 @@ class BTEnterNameViewController: UIViewController {
             !name.isEmpty else { return }
         let userDefaults = UserDefaults.standard
         userDefaults.setValue(name, forKey: PropertyKeys.displayNameKey)
-        print(userDefaults.string(forKey: PropertyKeys.displayNameKey))
+        game.addPlayer(named: name, isThisDevice: true)
+        print(
+            userDefaults.string(forKey: PropertyKeys.displayNameKey))
     }
     
     private func requestName() {
         
         nameTextField.text = ""
         nameTextField.becomeFirstResponder()
-//        roleStackView.isHidden = true
+        roleStackView.isHidden = true
         nameStackView.isHidden = false
     }
     
@@ -58,7 +60,7 @@ class BTEnterNameViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func okTapped(_ sender: Any) {
-        performSegue(withIdentifier: PropertyKeys.btEliminateSegue, sender: self)
+//        performSegue(withIdentifier: PropertyKeys.btEliminateSegue, sender: self)
     }
     
     // MARK: - Navigation
