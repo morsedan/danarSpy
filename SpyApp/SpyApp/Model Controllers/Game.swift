@@ -161,16 +161,30 @@ class Game {
 extension Game {
     func assignRoles() {
         
-        // figure out roles
-        // set the dict
+        spyPlayerIndex = Int.random(in: 0..<players.count)
         
-        for player in players {
-            if player == playerForDevice {
-                roleDictionary["GM"] = player.name
-                let messageData = createMessage(messageType: .assignRoles)
-                playerService.send(message: messageData)
+        // set the dict
+        for index in 0..<players.count {
+            
+            let playerName = players[index].name
+
+            if index == spyPlayerIndex {
+                roleDictionary[playerName] = currentGameItemPair.spyItem
+            } else {
+                roleDictionary[playerName] = currentGameItemPair.defenderItem
             }
         }
+        print(roleDictionary
+        )
+        let messageData = createMessage(messageType: .assignRoles)
+        playerService.send(message: messageData)
+        
+        guard let player = playerForDevice else { return }
+        let playerName = player.name
+        
+        guard let role = roleDictionary[playerName] else { return }
+        
+        delegate?.receivedRole(role: role)
     }
     
     func broadcastEliminatedPlayer() {
@@ -195,8 +209,12 @@ extension Game {
     
     func receiveRole() {
         
+        guard let player = playerForDevice else { return }
+        let playerName = player.name
         
-//        roleDictionary =
+        guard let role = roleDictionary[playerName] else { return }
+        
+        delegate?.receivedRole(role: role)
     }
     
     func sendVote(for name: String) {
@@ -346,9 +364,7 @@ extension Game {
                     let roles = try decoder.decode([String: String].self, from: payload)
                     
                     roleDictionary = roles
-                    if let role = roleDictionary["GM"] {
-                        delegate?.receivedRole(role: role)
-                    }
+                    receiveRole()
                     
 //                    for role in roles {
 //                        print("\(role.key): \(role.value)")
