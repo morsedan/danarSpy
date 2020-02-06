@@ -19,7 +19,6 @@ class BTEliminatePersonViewController: UIViewController {
     // MARK: - Properties
     
     var game: Game?
-//    let playerService = PlayerService()
     var playersToPotentiallyEliminate: [String] = []
 
     override func viewDidLoad() {
@@ -27,22 +26,34 @@ class BTEliminatePersonViewController: UIViewController {
         
         pickerView.delegate = self
         pickerView.dataSource = self
-//        playerService.delegate = game
         game?.delegate = self
         
+        setUpPlayersToEliminate()
+    }
+    
+    func setUpPlayersToEliminate() {
         guard let game = game else { return }
-        playersToPotentiallyEliminate = game.players.map { $0.name }
-
+        let allThePlayers = game.players.map { $0.name }
+        
+        playersToPotentiallyEliminate = allThePlayers.filter { $0 != game.playerForDevice?.name }
+        
+//        for player in game.players {
+//            if player.name == game.playerForDevice?.name {
+//
+//            }
+//        }
     }
     
     @IBAction func eliminateTapped(_ sender: Any) {
         
         let playerIndex = pickerView.selectedRow(inComponent: 0)
         let player = playersToPotentiallyEliminate[playerIndex]
-        
-        
-        
-        game?.sendVote(for: player)
+        guard let game = game else { return }
+        if game.actingAsGM {
+            game.gmRecieveVote(for: player)
+        } else {
+            game.sendVote(for: player)            
+        }
     }
     
     

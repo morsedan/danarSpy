@@ -25,7 +25,7 @@ class Game {
     var playerForDevice: Player?
     var players: [Player] = [] {
         didSet {
-//            print("Game.players.didSet")
+            //            print("Game.players.didSet")
             delegate?.playerWasAdded()
         }
     }
@@ -64,6 +64,9 @@ class Game {
     var delegate: PassPlayersDelegate?
     var roleDictionary: [String: String] = [:]
     var winner: String?
+    var thisTurnGuess: String = ""
+    var voteDictionary: [String: Int] = [:]
+    var playerToEliminate = ""
     
     // MARK: - Game Methods
     
@@ -79,7 +82,7 @@ class Game {
     
     @discardableResult func addPlayer(named name: String, isThisDevice: Bool) -> String {
         // TODO: This needs to be broken up for beginning a BT game
-//        currentGameItemPair = setItemPair()
+        //        currentGameItemPair = setItemPair()
         
         
         if players.count == spyPlayerIndex {
@@ -167,7 +170,7 @@ extension Game {
         for index in 0..<players.count {
             
             let playerName = players[index].name
-
+            
             if index == spyPlayerIndex {
                 roleDictionary[playerName] = currentGameItemPair.spyItem
             } else {
@@ -181,17 +184,43 @@ extension Game {
         
         guard let player = playerForDevice else { return }
         let playerName = player.name
-        
         guard let role = roleDictionary[playerName] else { return }
-        
         delegate?.receivedRole(role: role)
     }
     
-    func broadcastEliminatedPlayer() {
+    func gmRecieveVote(for player: String) {
+        var totalVotes = 0
         
+        let votesForPlayer = voteDictionary[player] ?? 0
+        voteDictionary[player] = votesForPlayer + 1
         
-
+        for (_, value) in voteDictionary {
+            totalVotes += value
+        }
+        print("Received vote!", voteDictionary)
+        if totalVotes == activePlayers.count {
+            
+            let sortedPlayers = voteDictionary.sorted { $0.value < $1.value }
+            let nameOfPlayerToEliminate = sortedPlayers[0].key
+            let playerType = activePlayers.filter { $0.name == nameOfPlayerToEliminate }[0]
+            guard let playerIndex = activePlayers.firstIndex(of: playerType) else { return }
+            activePlayers.remove(at: playerIndex)
+            playerToEliminate = playerType.name
+            // send to everyone to eliminate
+            let messageData = createMessage(messageType: .eliminatedPlayer)
+            playerService.send(message: messageData)
+            
+            // eliminate from own vc?
+            
+            voteDictionary = [:]
+        }
     }
+    
+    //    func broadcastEliminatedPlayer(named player: String) {
+    //
+    //
+    //
+    //    }
     
     func broadcastGameOver() {
         
@@ -218,6 +247,10 @@ extension Game {
     }
     
     func sendVote(for name: String) {
+        thisTurnGuess = name
+        
+        let messageData = createMessage(messageType: .guessSpy)
+        playerService.send(message: messageData)
         
     }
     
@@ -245,7 +278,7 @@ extension Game: PlayerServiceDelegate {
         for connectedDevice in connectedDevices {
             addPlayer(named: connectedDevice, isThisDevice: false)
         }
-
+        
         let nameArray = players.compactMap { $0.name }
         let names = Array(Set<String>(nameArray))
         var tempPlayers: [Player] = []
@@ -260,8 +293,8 @@ extension Game: PlayerServiceDelegate {
     }
     
     func playersChanged(manager: PlayerService, players: /*(*/[Player]/*, ItemPair)*/) {
-//        self.players = players
-//        print(players)
+        //        self.players = players
+        //        print(players)
     }
     
     func newPlayerJoined(playerName: String) {
@@ -316,19 +349,19 @@ extension Game {
                 print("ERROR: Failed to encode roles (\(roleDictionary)): \(error)")
             }
         case .guessSpy:
-            let encoder = JSONEncoder()
-            do {
-                payload = try encoder.encode(players[0].name)
-            } catch {
-                print("ERROR: Failed to encode vote (\(players[0].name)): \(error)")
-            }
+            //            let encoder = JSONEncoder()
+            payload = thisTurnGuess.data(using: .utf8)!//encoder.encode(thisTurnGuess)
+            //            do {
+            //            } catch {
+            //                print("ERROR: Failed to encode vote (\(thisTurnGuess)): \(error)")
+            //            }
             
         case .eliminatedPlayer:
             let encoder = JSONEncoder()
             do {
-                payload = try encoder.encode(players[0].name)
+                payload = try encoder.encode(playerToEliminate)
             } catch {
-                print("ERROR: Failed to encode vote (\(players[0].name)): \(error)")
+                print("ERROR: Failed to encode vote (\(playerToEliminate)): \(error)")
             }
             
         case .gameOver:
@@ -366,54 +399,59 @@ extension Game {
                     roleDictionary = roles
                     receiveRole()
                     
-//                    for role in roles {
-//                        print("\(role.key): \(role.value)")
-//                    }
-                    
-                    // TODO: process next turn logic if gameMaster
-                    
                 } catch {
                     print("Error: invalid role data: \(payload as NSData)")
                 }
             case .guessSpy:
-                do {
-                    let decoder = JSONDecoder()
-                    let guess = try decoder.decode(String.self, from: payload)
-                    print("My guess: \(guess)")
-                    
-                    // TODO: process next turn logic if gameMaster
-                    
-                } catch {
-                    print("Error: invalid guess data: \(payload as NSData)")
+                guard let guess = String(data: payload, encoding: .utf8) else {
+                    print("ERROR: invalid gameOver payload: \(payload as NSData)")
+                    return
                 }
-            case .eliminatedPlayer:
-                do {
-                    let decoder = JSONDecoder()
-                    let playerName = try decoder.decode(String.self, from: payload)
-                    print("Eliminated player: \(playerName)")
-                    
-                    // TODO: process next turn logic if gameMaster
-                    
-                } catch {
-                    print("Error: invalid nextTurn data: \(payload as NSData)")
+                if actingAsGM {
+                    gmRecieveVote(for: guess)
                 }
-                
-                
-            case .gameOver:
-                do {
-                    let decoder = JSONDecoder()
-                    let winningRole = try decoder.decode(RoleType.self, from: payload)
-                    let roleString = String(winningRole.rawValue)
-                    print("Winning role: \(roleString.capitalized)")
+//                    do {
+//                        let decoder = JSONDecoder()
+//                        let guess = try decoder.decode(String.self, from: payload)
+//                        //                    print("My guess: \(guess)")
+//
+//                        // TODO: process next turn logic if gameMaster
+//                        if actingAsGM {
+//                            gmRecieveVote(for: guess)
+//                        }
+//
+//
+//                    } catch {
+//                        print("Error: invalid guess data: \(payload as NSData)")
+//                    }
+                    case .eliminatedPlayer:
+                    do {
+                        let decoder = JSONDecoder()
+                        let playerName = try decoder.decode(String.self, from: payload)
+                        print("Eliminated player: \(playerName)")
+                        
+                        // TODO: process next turn logic if gameMaster
+                        
+                    } catch {
+                        print("Error: invalid nextTurn data: \(payload as NSData)")
+                    }
                     
-                    // TODO: process next turn logic if gameMaster
                     
-                } catch {
-                    print("Error: invalid nextTurn data: \(payload as NSData)")
+                    case .gameOver:
+                    do {
+                        let decoder = JSONDecoder()
+                        let winningRole = try decoder.decode(RoleType.self, from: payload)
+                        let roleString = String(winningRole.rawValue)
+                        print("Winning role: \(roleString.capitalized)")
+                        
+                        // TODO: process next turn logic if gameMaster
+                        
+                    } catch {
+                        print("Error: invalid nextTurn data: \(payload as NSData)")
+                    }
                 }
+            } else {
+                print("Error: Message Type Data Missing")
             }
-        } else {
-            print("Error: Message Type Data Missing")
         }
-    }
 }

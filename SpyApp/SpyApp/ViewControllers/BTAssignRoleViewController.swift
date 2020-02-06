@@ -39,6 +39,7 @@ class BTAssignRoleViewController: UIViewController {
     }
     
     func updateViews() {
+        roleStackView.isHidden = true
         guard let game = game else { return }
         let playersArray = game.players.map { $0.name }
         playersLabel.text = playersArray.joined(separator: ", ")
@@ -55,6 +56,7 @@ class BTAssignRoleViewController: UIViewController {
         let gmName = gm.name
         
         if myName == gmName {
+            game.actingAsGM = true
             game.assignRoles()
         }
         nameStackView.isHidden = true

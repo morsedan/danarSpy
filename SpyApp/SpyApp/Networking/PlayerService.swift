@@ -147,16 +147,16 @@ extension PlayerService : MCSessionDelegate {
         
         delegate?.parseData(data)
         
-        let jsonDecoder = JSONDecoder()
-        do {
-            let players = try jsonDecoder.decode([Player].self, from: data)
-            self.delegate?.playersChanged(manager: self, players: players)
-            //            for player in players {
-            //                print("Player name: \(player.name) Votes: \(player.voteCount)")
-            //            }
-        } catch {
-            print("Error processing data: \(error)")
-        }
+//        let jsonDecoder = JSONDecoder()
+//        do {
+//            let players = try jsonDecoder.decode([Player].self, from: data)
+//            self.delegate?.playersChanged(manager: self, players: players)
+//            //            for player in players {
+//            //                print("Player name: \(player.name) Votes: \(player.voteCount)")
+//            //            }
+//        } catch {
+//            print("Error processing data: \(error)")
+//        }
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
