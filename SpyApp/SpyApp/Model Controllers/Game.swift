@@ -168,14 +168,9 @@ extension Game {
             if player == playerForDevice {
                 roleDictionary["GM"] = player.name
                 let messageData = createMessage(messageType: .assignRoles)
-                
+                playerService.send(message: messageData)
             }
         }
-        
-        
-        
-        
-        // send msg
     }
     
     func broadcastEliminatedPlayer() {
@@ -200,6 +195,8 @@ extension Game {
     
     func receiveRole() {
         
+        
+//        roleDictionary =
     }
     
     func sendVote(for name: String) {
@@ -211,7 +208,6 @@ extension Game {
         //        guard let index = activePlayers.firstIndex(of: player) else { return true }
         //        activePlayers.remove(at: index)
     }
-    
     func btEndGame() {
         
     }
@@ -222,6 +218,10 @@ extension Game {
 }
 
 extension Game: PlayerServiceDelegate {
+    func parseData(_ data: Data) {
+        parseMessage(data: data)
+    }
+    
     func connectedDevicesChanged(manager: PlayerService, connectedDevices: [String]) {
         print("connectedDevicesChanged: \(connectedDevices.count)")
         for connectedDevice in connectedDevices {
@@ -344,9 +344,15 @@ extension Game {
                 do {
                     let decoder = JSONDecoder()
                     let roles = try decoder.decode([String: String].self, from: payload)
-                    for role in roles {
-                        print("\(role.key): \(role.value)")
+                    
+                    roleDictionary = roles
+                    if let role = roleDictionary["GM"] {
+                        delegate?.receivedRole(role: role)
                     }
+                    
+//                    for role in roles {
+//                        print("\(role.key): \(role.value)")
+//                    }
                     
                     // TODO: process next turn logic if gameMaster
                     

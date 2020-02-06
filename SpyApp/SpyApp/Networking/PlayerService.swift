@@ -19,11 +19,11 @@ import MultipeerConnectivity
 //}
 
 protocol PlayerServiceDelegate {
-    
+    // TODO get rid of the unused methods here
     func connectedDevicesChanged(manager : PlayerService, connectedDevices: [String])
     func playersChanged(manager : PlayerService, players: [Player])
     func newPlayerJoined(playerName: String)
-    
+    func parseData(_ data: Data)
 }
 
 
@@ -70,18 +70,15 @@ class PlayerService : NSObject {
     
     // MARK: - Send
     
-    func send(players: [Player]) {
-        print("sendPlayers: \(players.count) to \(session.connectedPeers.count) peers")
+    func send(message: Data) {
+        
         
         if session.connectedPeers.count > 0 {
             do {
-                let jsonData = try JSONEncoder().encode(players)
-                
-                
-                try self.session.send(jsonData, toPeers: session.connectedPeers, with: .reliable)
+                try session.send(message, toPeers: session.connectedPeers, with: .reliable)
             }
             catch let error {
-                print("Error sending [Player]: \(error)")
+                print("Error sending message (\(message)): \(error)")
             }
         }
     }
@@ -147,6 +144,8 @@ extension PlayerService : MCSessionDelegate {
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         print("didReceiveData: \(data)")
+        
+        delegate?.parseData(data)
         
         let jsonDecoder = JSONDecoder()
         do {

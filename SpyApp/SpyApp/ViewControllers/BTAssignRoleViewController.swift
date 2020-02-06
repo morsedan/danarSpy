@@ -67,10 +67,12 @@ class BTAssignRoleViewController: UIViewController {
     // MARK: - Private Methods
     
     private func roleReceived(role: String) {
-        nameStackView.isHidden = true
-        roleStackView.isHidden = false
-        
-        roleLabel.text = role
+        DispatchQueue.main.async {
+            self.nameStackView.isHidden = true
+            self.roleStackView.isHidden = false
+            
+            self.roleLabel.text = role
+        }
     }
     
     
