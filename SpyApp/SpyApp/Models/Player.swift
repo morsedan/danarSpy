@@ -18,6 +18,7 @@ struct Player: Codable, Equatable {
     let name: String
     let id: String = UUID().uuidString
     let role: RoleType
+    var roleString: String = ""
     var eliminatedInRound: Int = 0
     var voteCount = 0
     

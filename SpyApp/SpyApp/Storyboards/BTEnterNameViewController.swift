@@ -31,32 +31,30 @@ class BTEnterNameViewController: UIViewController {
     }
     
 
-    func createOrJoinGame() {
+    func setPeerIDName() {
+
         guard let name = nameTextField.text,
             !name.isEmpty else { return }
-        let role = game.addPlayer(named: name, isThisDevice: true)
-        print("game.players.count: \(game.players.count)")
         let userDefaults = UserDefaults.standard
         userDefaults.setValue(name, forKey: PropertyKeys.displayNameKey)
-        
-        displayRole(with: role)
+        print(userDefaults.string(forKey: PropertyKeys.displayNameKey))
     }
     
     private func requestName() {
         
         nameTextField.text = ""
         nameTextField.becomeFirstResponder()
-        roleStackView.isHidden = true
+//        roleStackView.isHidden = true
         nameStackView.isHidden = false
     }
     
-    private func displayRole(with role: String) {
-        
-        roleLabel.text = "Role: \(role)"
-        roleStackView.isHidden = false
-        nameStackView.isHidden = true
-    }
-    
+//    private func displayRole(with role: String) {
+//
+//        roleLabel.text = "Role: \(role)"
+//        roleStackView.isHidden = false
+//        nameStackView.isHidden = true
+//    }
+//
     // MARK: - Actions
     
     @IBAction func okTapped(_ sender: Any) {
@@ -67,9 +65,9 @@ class BTEnterNameViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let eliminateVC = segue.destination as? BTEliminatePersonViewController else { return }
+        guard let roleVC = segue.destination as? BTAssignRoleViewController else { return }
         
-        eliminateVC.game = game
+        roleVC.game = game
     }
     
 
@@ -78,7 +76,8 @@ class BTEnterNameViewController: UIViewController {
 extension BTEnterNameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        createOrJoinGame()
+        setPeerIDName()
+        performSegue(withIdentifier: PropertyKeys.btAssignRolesSegue, sender: self)
         return true
     }
 }

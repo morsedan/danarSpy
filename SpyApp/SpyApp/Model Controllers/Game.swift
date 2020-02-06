@@ -9,7 +9,10 @@
 import Foundation
 
 protocol PassPlayersDelegate {
-    func playersWerePassed(players: [Player])
+    func playerWasEliminated(player: String)
+    func receivedRole(role: String)
+    func gameFinished()
+    func playerWasAdded()
 }
 
 class Game {
@@ -20,9 +23,8 @@ class Game {
     var playerForDevice: Player?
     var players: [Player] = [] {
         didSet {
-            print("Game.players.didSet")
-            
-            delegate?.playersWerePassed(players: players)
+//            print("Game.players.didSet")
+            delegate?.playerWasAdded()
         }
     }
     lazy var activePlayers: [Player] = []
@@ -146,15 +148,47 @@ class Game {
         
         return itemPairsToChooseFrom.remove(at: index)
     }
+}
+
+// MARK: - Manager Logic
+
+extension Game {
+    func assignRoles() {
+        
+    }
     
+    func broadcastEliminatedPlayer() {
+        
+    }
     
+    func broadcastGameOver() {
+        
+    }
     
+}
+
+// MARK: - Client Logic
+
+extension Game {
+    func receiveRole() {
+        
+    }
     
+    func sendVote(for name: String) {
+        
+    }
     
+    func eliminatePlayer() {
+        
+    }
     
+    func btEndGame() {
+        
+    }
     
-    
-    
+    func resetGame() {
+        
+    }
 }
 
 extension Game: PlayerServiceDelegate {
@@ -184,6 +218,7 @@ extension Game: PlayerServiceDelegate {
     
     func newPlayerJoined(playerName: String) {
         addPlayer(named: playerName, isThisDevice: false)
+        print("Player count: \(players.count)")
     }
     
     

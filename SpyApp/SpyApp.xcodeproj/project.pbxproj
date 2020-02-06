@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C05F32B923EB74E5003F720D /* BTAssignRoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05F32B823EB74E5003F720D /* BTAssignRoleViewController.swift */; };
+		C05F32BB23EB9199003F720D /* BTGameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05F32BA23EB9199003F720D /* BTGameOverViewController.swift */; };
 		C0650BD323E91F7B0039A4E8 /* GameOverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0650BD223E91F7B0039A4E8 /* GameOverTableViewController.swift */; };
 		C0650BD723E9E8F10039A4E8 /* BTEnterName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0650BD623E9E8F10039A4E8 /* BTEnterName.storyboard */; };
 		C0650BD923E9E9510039A4E8 /* BTEnterNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0650BD823E9E9510039A4E8 /* BTEnterNameViewController.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C05F32B823EB74E5003F720D /* BTAssignRoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTAssignRoleViewController.swift; sourceTree = "<group>"; };
+		C05F32BA23EB9199003F720D /* BTGameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTGameOverViewController.swift; sourceTree = "<group>"; };
 		C0650BD223E91F7B0039A4E8 /* GameOverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverTableViewController.swift; sourceTree = "<group>"; };
 		C0650BD623E9E8F10039A4E8 /* BTEnterName.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BTEnterName.storyboard; sourceTree = "<group>"; };
 		C0650BD823E9E9510039A4E8 /* BTEnterNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BTEnterNameViewController.swift; path = SpyApp/Storyboards/BTEnterNameViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -140,7 +144,9 @@
 		C0FF108323E77D9000E54968 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C05F32BA23EB9199003F720D /* BTGameOverViewController.swift */,
 				C0650BDC23E9F3080039A4E8 /* BTEliminatePersonViewController.swift */,
+				C05F32B823EB74E5003F720D /* BTAssignRoleViewController.swift */,
 				C0650BD823E9E9510039A4E8 /* BTEnterNameViewController.swift */,
 				C0FF107223E77D0E00E54968 /* StartGameViewController.swift */,
 				C0FF109423E77EFA00E54968 /* SetPlayerCountViewController.swift */,
@@ -354,8 +360,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0FF109923E77F4A00E54968 /* EliminatePlayerViewController.swift in Sources */,
+				C05F32B923EB74E5003F720D /* BTAssignRoleViewController.swift in Sources */,
 				C0FF109523E77EFA00E54968 /* SetPlayerCountViewController.swift in Sources */,
 				C0FF109323E77EC700E54968 /* Game.swift in Sources */,
+				C05F32BB23EB9199003F720D /* BTGameOverViewController.swift in Sources */,
 				C0FF108F23E77EB100E54968 /* ItemPair.swift in Sources */,
 				C0FF10B723E7843F00E54968 /* PropertyKeys.swift in Sources */,
 				C0650BDD23E9F3080039A4E8 /* BTEliminatePersonViewController.swift in Sources */,
