@@ -13,6 +13,7 @@ class BTGameOverViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var wonLabel: UILabel!
+    var winner = ""
     
     // MARK: - Properties
     
@@ -23,21 +24,26 @@ class BTGameOverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        updateViews()
+        game?.gameIsOver = true
     }
     
     func updateViews() {
-        switch game?.winningTeam {
-        case .defender:
+        
+        switch winner {
+        case "Defenders":
             wonLabel.text = "Defenders win!"
-        case .spy:
+        case "Spy":
             wonLabel.text = "Spy wins!"
-        case .none:
+        default:
             wonLabel.text = ""
         }
     }
     
     @IBAction func playAgainTapped(_ sender: Any) {
-//        dismiss(animated: true, completion: nil)
+        game?.resetGame()
+//        game.
+        dismiss(animated: true, completion: nil)
     }
     
     

@@ -18,17 +18,73 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7F97D4A0-A7EC-4CA9-9185-414AFE97282C"
+            uuid = "C1053B70-9A8F-472C-84D3-52F44708773C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+            filePath = "SpyApp/Networking/PlayerService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "deinit"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2EB18F91-E3CD-43DC-8BB6-E558C18424B9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "Yes"
             filePath = "SpyApp/Model Controllers/Game.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
-            landmarkName = "gmRecieveVote(for:)"
-            landmarkType = "7">
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "Game"
+            landmarkType = "3">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
+                  <ActionContent
+                     consoleCommand = "po btPlayerPeople">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+            <Locations>
+               <Location
+                  uuid = "2EB18F91-E3CD-43DC-8BB6-E558C18424B9 - 76733644d147a8e7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SpyApp.Game.btPlayerPeople.getter : Swift.Array&lt;__C.MCPeerID&gt;"
+                  moduleName = "SpyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/morse/dev/iOS11-Sprint16/danarSpy/SpyApp/SpyApp/Model%20Controllers/Game.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "356">
+               </Location>
+               <Location
+                  uuid = "2EB18F91-E3CD-43DC-8BB6-E558C18424B9 - 9ac94785b98114d3"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SpyApp.Game.btPlayerPeople.setter : Swift.Array&lt;__C.MCPeerID&gt;"
+                  moduleName = "SpyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/morse/dev/iOS11-Sprint16/danarSpy/SpyApp/SpyApp/Model%20Controllers/Game.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "125">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

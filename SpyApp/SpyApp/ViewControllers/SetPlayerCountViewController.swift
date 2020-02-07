@@ -65,8 +65,10 @@ extension SetPlayerCountViewController: UIPickerViewDelegate, UIPickerViewDataSo
         return 8
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(row + 3)
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        
+        let rowtext = String(row + 3)
+        return NSAttributedString(string: rowtext, attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
     }
     
 }

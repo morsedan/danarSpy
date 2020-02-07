@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import MultipeerConnectivity
 
 protocol PassPlayersDelegate {
     func playerWasEliminated(player: String)
     func receivedRole(role: String)
-    func gameFinished()
+    func gameFinished(winner: String)
     func playerWasAdded()
 }
 
@@ -19,7 +20,11 @@ class Game {
     
     // MARK: - Properties
     
-    lazy var playerService = PlayerService()
+    lazy var playerService = PlayerService()// : PlayerService? {
+//        didSet {
+//            print("setService")
+//        }
+//    }
     
     var actingAsGM: Bool = false
     var playerForDevice: Player?
@@ -67,6 +72,12 @@ class Game {
     var thisTurnGuess: String = ""
     var voteDictionary: [String: Int] = [:]
     var playerToEliminate = ""
+    lazy var btPlayerPeople = playerService.session.connectedPeers
+    
+    init() {
+//        NotificationCenter.default.removeObserver(<#T##observer: Any##Any#>, name: <#T##NSNotification.Name?#>, object: <#T##Any?#>)//[[NSNotificationCenter defaultCenter] removeObserver:name:object:]
+        print("init")
+    }
     
     // MARK: - Game Methods
     
@@ -198,32 +209,44 @@ extension Game {
             totalVotes += value
         }
         print("Received vote!", voteDictionary)
+        print("Active: \(activePlayers.count), votes: \(totalVotes)")
         if totalVotes == activePlayers.count {
             
-            let sortedPlayers = voteDictionary.sorted { $0.value < $1.value }
+            let sortedPlayers = voteDictionary.sorted { $0.value > $1.value }
+            print("Sorted: \(sortedPlayers)")
             let nameOfPlayerToEliminate = sortedPlayers[0].key
             let playerType = activePlayers.filter { $0.name == nameOfPlayerToEliminate }[0]
             guard let playerIndex = activePlayers.firstIndex(of: playerType) else { return }
+            print(activePlayers)
             activePlayers.remove(at: playerIndex)
+            print(activePlayers)
             playerToEliminate = playerType.name
             // send to everyone to eliminate
             let messageData = createMessage(messageType: .eliminatedPlayer)
             playerService.send(message: messageData)
-            
-            // eliminate from own vc?
+            removePlayer(named: playerToEliminate)
             
             voteDictionary = [:]
+            
+            checkForEndOfGame(playerToEliminate)
         }
     }
     
-    //    func broadcastEliminatedPlayer(named player: String) {
-    //
-    //
-    //
-    //    }
+    func checkForEndOfGame(_ eliminatedPlayer: String) {
+        if roleDictionary[eliminatedPlayer] == currentGameItemPair.spyItem {
+            broadcastGameOver("Defenders")
+            gameIsOver = true
+        } else if activePlayers.count <= 2 {
+            broadcastGameOver("Spy")
+            gameIsOver = true
+        }
+    }
     
-    func broadcastGameOver() {
-        
+    func broadcastGameOver(_ winner: String) {
+        self.winner = winner
+        let messageData = createMessage(messageType: .gameOver)
+        playerService.send(message: messageData)
+        btEndGame(winner: winner)
     }
     
 }
@@ -254,17 +277,25 @@ extension Game {
         
     }
     
-    func eliminatePlayer() {
-        
+    func removePlayer(named name: String) {
+        print("removePlayer()")
+        delegate?.playerWasEliminated(player: name)
         //        guard let index = activePlayers.firstIndex(of: player) else { return true }
         //        activePlayers.remove(at: index)
     }
-    func btEndGame() {
-        
-    }
     
     func resetGame() {
+//        playerService = nil
+        roleDictionary = [:]
+        winner = nil
+        thisTurnGuess = ""
+        voteDictionary = [:]
+        playerToEliminate = ""
+//        playerService.session
         
+//        for peer in playerService.session.connectedPeers {
+//            playerService.session.
+//        }
     }
 }
 
@@ -297,16 +328,20 @@ extension Game: PlayerServiceDelegate {
         //        print(players)
     }
     
-    func newPlayerJoined(playerName: String) {
+    func newPlayerJoined(playerName: MCPeerID) {
         let playerNames = players.map { $0.name }
-        
-        if !playerNames.contains(playerName) {
-            addPlayer(named: playerName, isThisDevice: false)
+//        playerService.session.connectedPeers.contains(playerName)
+        if !playerNames.contains(playerName.displayName) {
+            addPlayer(named: playerName.displayName, isThisDevice: false)
         } else {
             print("Did NOT add duplicate player")
         }
         
         print("Player count: \(players.count)")
+    }
+    
+    func btEndGame(winner: String) {
+        delegate?.gameFinished(winner: winner)
     }
     
     
@@ -348,13 +383,9 @@ extension Game {
             } catch {
                 print("ERROR: Failed to encode roles (\(roleDictionary)): \(error)")
             }
+            
         case .guessSpy:
-            //            let encoder = JSONEncoder()
             payload = thisTurnGuess.data(using: .utf8)!//encoder.encode(thisTurnGuess)
-            //            do {
-            //            } catch {
-            //                print("ERROR: Failed to encode vote (\(thisTurnGuess)): \(error)")
-            //            }
             
         case .eliminatedPlayer:
             let encoder = JSONEncoder()
@@ -410,48 +441,36 @@ extension Game {
                 if actingAsGM {
                     gmRecieveVote(for: guess)
                 }
-//                    do {
-//                        let decoder = JSONDecoder()
-//                        let guess = try decoder.decode(String.self, from: payload)
-//                        //                    print("My guess: \(guess)")
-//
-//                        // TODO: process next turn logic if gameMaster
-//                        if actingAsGM {
-//                            gmRecieveVote(for: guess)
-//                        }
-//
-//
-//                    } catch {
-//                        print("Error: invalid guess data: \(payload as NSData)")
-//                    }
-                    case .eliminatedPlayer:
-                    do {
-                        let decoder = JSONDecoder()
-                        let playerName = try decoder.decode(String.self, from: payload)
-                        print("Eliminated player: \(playerName)")
-                        
-                        // TODO: process next turn logic if gameMaster
-                        
-                    } catch {
-                        print("Error: invalid nextTurn data: \(payload as NSData)")
-                    }
+            case .eliminatedPlayer:
+                do {
+                    let decoder = JSONDecoder()
+                    let playerName = try decoder.decode(String.self, from: payload)
+                    print("Eliminated player: \(playerName)")
                     
+                    // TODO: process next turn logic if gameMaster
+                    removePlayer(named: playerName)
                     
-                    case .gameOver:
-                    do {
-                        let decoder = JSONDecoder()
-                        let winningRole = try decoder.decode(RoleType.self, from: payload)
-                        let roleString = String(winningRole.rawValue)
-                        print("Winning role: \(roleString.capitalized)")
-                        
-                        // TODO: process next turn logic if gameMaster
-                        
-                    } catch {
-                        print("Error: invalid nextTurn data: \(payload as NSData)")
-                    }
+                } catch {
+                    print("Error: invalid nextTurn data: \(payload as NSData)")
                 }
-            } else {
-                print("Error: Message Type Data Missing")
+                
+                
+            case .gameOver:
+                do {
+                    let decoder = JSONDecoder()
+                    let winner = try decoder.decode(String.self, from: payload)
+//                    let winner = String(winningRole.rawValue)
+//                    print("Winning role: \(roleString.capitalized)")
+                    
+                    // TODO: process next turn logic if gameMaster
+                    btEndGame(winner: winner)
+                    
+                } catch {
+                    print("Error: invalid nextTurn data: \(payload as NSData)")
+                }
             }
+        } else {
+            print("Error: Message Type Data Missing")
         }
+    }
 }

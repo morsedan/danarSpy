@@ -39,8 +39,9 @@
                         <viewLayoutGuide key="safeArea" id="qal-Mn-AiF"/>
                     </view>
                     <connections>
+                        <outlet property="eliminateButton" destination="AUI-v5-eXW" id="Byu-6v-YHU"/>
                         <outlet property="pickerView" destination="02h-Mo-gqi" id="sEa-pg-205"/>
-                        <segue destination="P6P-Cw-dLV" kind="show" identifier="BTShowGameOverSegue" id="wLp-MX-IjD"/>
+                        <segue destination="P6P-Cw-dLV" kind="presentation" identifier="BTShowGameOverSegue" modalPresentationStyle="fullScreen" id="wLp-MX-IjD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LxS-iU-JAK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -52,11 +53,11 @@
             <objects>
                 <viewController id="P6P-Cw-dLV" customClass="BTGameOverViewController" customModule="SpyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uB0-iP-Z9m">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="lmr-ki-qmO">
-                                <rect key="frame" x="20" y="373" width="374" height="96.5"/>
+                                <rect key="frame" x="20" y="400" width="374" height="96.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aoi-1Z-Kza">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
@@ -73,7 +74,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbs-hR-p3V">
-                                <rect key="frame" x="20" y="768" width="374" height="30"/>
+                                <rect key="frame" x="20" y="822" width="374" height="30"/>
                                 <state key="normal" title="Play Again!"/>
                                 <connections>
                                     <action selector="playAgainTapped:" destination="P6P-Cw-dLV" eventType="touchUpInside" id="nds-Pr-dmi"/>

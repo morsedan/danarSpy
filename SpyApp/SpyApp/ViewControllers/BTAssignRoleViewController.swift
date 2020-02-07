@@ -38,9 +38,23 @@ class BTAssignRoleViewController: UIViewController {
         updateViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let game = game else { return }
+        if game.gameIsOver {
+            nameStackView.isHidden = true
+            roleStackView.isHidden = true
+            
+            dismiss(animated: false, completion: nil)
+        }
+    }
+    
     func updateViews() {
         roleStackView.isHidden = true
         guard let game = game else { return }
+        
+        
+        
         let playersArray = game.players.map { $0.name }
         playersLabel.text = playersArray.joined(separator: ", ")
     }
@@ -106,7 +120,7 @@ extension BTAssignRoleViewController: PassPlayersDelegate {
         print("Wrong view controller")
     }
     
-    func gameFinished() {
+    func gameFinished(winner: String) {
         print("Wrong view controller")
     }
     
