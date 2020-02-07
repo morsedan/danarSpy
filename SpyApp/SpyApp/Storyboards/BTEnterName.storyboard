@@ -36,6 +36,11 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
                                         <state key="normal" title="Done"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="nrD-Xk-pmb" kind="presentation" identifier="BTShowAssignRolesSegue" modalPresentationStyle="fullScreen" id="HhH-Cj-wEp"/>
                                         </connections>
@@ -95,6 +100,11 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
                                         <state key="normal" title="Lets Go"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="playersOKTapped:" destination="nrD-Xk-pmb" eventType="touchUpInside" id="QKB-yp-qfZ"/>
                                         </connections>
@@ -123,6 +133,11 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
                                         <state key="normal" title="Got It"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="roleOKTapped:" destination="nrD-Xk-pmb" eventType="touchUpInside" id="D1t-FN-mbT"/>
                                         </connections>

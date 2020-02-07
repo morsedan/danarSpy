@@ -26,6 +26,8 @@ class BTAssignRoleViewController: UIViewController {
             print("Got the game in assignRole!")
         }
     }
+    
+    var currentPlayerName: String?
 //    let playerService = PlayerService()
 
     override func viewDidLoad() {
@@ -101,6 +103,7 @@ class BTAssignRoleViewController: UIViewController {
         guard let eliminateVC = segue.destination as? BTEliminatePersonViewController else { return }
         
         eliminateVC.game = game
+        eliminateVC.currentPlayerName = currentPlayerName
     }
     
 

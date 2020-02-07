@@ -45,6 +45,11 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
                                 <state key="normal" title="Pass 'n' Play"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="startTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yrC-0H-xD5"/>
                                 </connections>
@@ -56,6 +61,11 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
                                 <state key="normal" title="Local Play"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="localPlayerTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="siQ-1T-e8U"/>
                                 </connections>
@@ -67,6 +77,11 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
                                 <state key="normal" title="Instructions"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1019478068" green="0.10196910050000001" blue="0.1019431576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

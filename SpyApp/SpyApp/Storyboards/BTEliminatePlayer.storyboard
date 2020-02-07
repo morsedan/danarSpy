@@ -27,25 +27,41 @@
                                 <rect key="frame" x="115" y="581" width="184" height="76"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
                                 <state key="normal" title="Eliminate"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="eliminateTapped:" destination="Z6C-Fv-lSC" eventType="touchUpInside" id="xNA-BD-hv3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJS-wj-zgI">
+                                <rect key="frame" x="20" y="287.5" width="374" height="30"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1019478068" green="0.10196910050000001" blue="0.1019431576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ymv-Vm-HLh" firstAttribute="top" secondItem="iJS-wj-zgI" secondAttribute="bottom" constant="22.5" id="0EQ-k7-ela"/>
                             <constraint firstItem="ymv-Vm-HLh" firstAttribute="centerX" secondItem="ZPU-pm-wfk" secondAttribute="centerX" id="5t0-Ob-r9M"/>
                             <constraint firstItem="wg4-iU-eEn" firstAttribute="top" secondItem="ymv-Vm-HLh" secondAttribute="bottom" constant="25" id="65D-rJ-cqt"/>
+                            <constraint firstItem="qal-Mn-AiF" firstAttribute="trailing" secondItem="iJS-wj-zgI" secondAttribute="trailing" constant="20" id="Dnn-nL-NLI"/>
                             <constraint firstItem="wg4-iU-eEn" firstAttribute="centerX" secondItem="ymv-Vm-HLh" secondAttribute="centerX" id="GnB-lb-cC9"/>
                             <constraint firstItem="wg4-iU-eEn" firstAttribute="height" secondItem="ZPU-pm-wfk" secondAttribute="height" multiplier="0.0848214" id="HIy-Dw-6Og"/>
+                            <constraint firstItem="iJS-wj-zgI" firstAttribute="leading" secondItem="qal-Mn-AiF" secondAttribute="leading" constant="20" id="Mpi-Bf-aFV"/>
                             <constraint firstItem="wg4-iU-eEn" firstAttribute="leading" secondItem="qal-Mn-AiF" secondAttribute="leading" constant="115" id="SxQ-rr-yfE"/>
                             <constraint firstItem="qal-Mn-AiF" firstAttribute="bottom" secondItem="wg4-iU-eEn" secondAttribute="bottom" constant="205" id="cEA-sj-YUy"/>
+                            <constraint firstItem="iJS-wj-zgI" firstAttribute="centerX" secondItem="ZPU-pm-wfk" secondAttribute="centerX" id="q5m-a9-shW"/>
                             <constraint firstItem="ymv-Vm-HLh" firstAttribute="centerY" secondItem="ZPU-pm-wfk" secondAttribute="centerY" id="q7s-nD-pbj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qal-Mn-AiF"/>
                     </view>
                     <connections>
                         <outlet property="eliminateButton" destination="wg4-iU-eEn" id="lAj-oP-46y"/>
+                        <outlet property="nameRoleLabel" destination="iJS-wj-zgI" id="bfP-fD-7f3"/>
                         <outlet property="pickerView" destination="02h-Mo-gqi" id="lz0-oM-MhD"/>
                         <segue destination="P6P-Cw-dLV" kind="presentation" identifier="BTShowGameOverSegue" modalPresentationStyle="fullScreen" id="x3a-mb-O62"/>
                     </connections>
@@ -84,6 +100,11 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
                                         <state key="normal" title="Play Again"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="playAgainTapped:" destination="P6P-Cw-dLV" eventType="touchUpInside" id="wOj-Pv-zbK"/>
                                         </connections>
