@@ -26,11 +26,13 @@ class BTAssignRoleViewController: UIViewController {
             print("Got the game in assignRole!")
         }
     }
+    
+    var currentPlayerName: String?
 //    let playerService = PlayerService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         guard let game = game else { return }
 //        playerService.delegate = game
@@ -58,7 +60,7 @@ class BTAssignRoleViewController: UIViewController {
         let playersArray = game.players.map { $0.name }
         playersLabel.text = playersArray.joined(separator: ", ")
     }
-    
+     
     // MARK: - Actions
     
     @IBAction func playersOKTapped(_ sender: Any) {
@@ -101,6 +103,7 @@ class BTAssignRoleViewController: UIViewController {
         guard let eliminateVC = segue.destination as? BTEliminatePersonViewController else { return }
         
         eliminateVC.game = game
+        eliminateVC.currentPlayerName = currentPlayerName
     }
     
 

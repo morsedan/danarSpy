@@ -14,6 +14,8 @@ class BTEliminatePersonViewController: UIViewController {
     
     // MARK: - Outlets
 
+    
+    @IBOutlet weak var nameRoleLabel: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var eliminateButton: UIButton!
     
@@ -32,6 +34,8 @@ class BTEliminatePersonViewController: UIViewController {
         }
     }
     var winner = ""
+    var currentPlayerName: String?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +44,7 @@ class BTEliminatePersonViewController: UIViewController {
         pickerView.dataSource = self
         game?.delegate = self
         
+        nameRoleLabel.text = "\(currentPlayerName ?? "")"
         setUpPlayersToEliminate()
     }
     

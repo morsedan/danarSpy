@@ -19,6 +19,7 @@ class BTEnterNameViewController: UIViewController {
     // MARK: - Properties
     
     let game = Game()
+    var currentPlayerName: String?
     
     // MARK: - Lifecycle Methods
 
@@ -66,6 +67,8 @@ class BTEnterNameViewController: UIViewController {
         userDefaults.setValue(name, forKey: PropertyKeys.displayNameKey)
         
         game.addSelfAsPlayer(named: name)
+        
+        currentPlayerName = name
 //        game.addPlayer(named: name, isThisDevice: true)
 //        print(userDefaults.string(forKey: PropertyKeys.displayNameKey))
     }
@@ -103,6 +106,7 @@ class BTEnterNameViewController: UIViewController {
         guard let roleVC = segue.destination as? BTAssignRoleViewController else { return }
         
         roleVC.game = game
+        roleVC.currentPlayerName = currentPlayerName
     }
     
 

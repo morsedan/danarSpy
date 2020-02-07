@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Start Game View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="StartGameViewController" customModule="SpyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconNoBG" translatesAutoresizingMaskIntoConstraints="NO" id="AEm-Hp-rbK">
+                                <rect key="frame" x="75" y="64" width="264" height="264"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AEm-Hp-rbK" secondAttribute="height" multiplier="1:1" id="Z17-TR-GjK"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="kll-CQ-OrK">
+                                <rect key="frame" x="20" y="353" width="374" height="77.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Spy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djr-Du-WmV">
+                                        <rect key="frame" x="161.5" y="0.0" width="51.5" height="44"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="31"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIND THE ODD PERSON OUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQF-ya-efq">
+                                        <rect key="frame" x="76" y="53" width="222.5" height="24.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAW-7M-nlq" customClass="EmbossButton" customModule="SpyApp" customModuleProvider="target">
+                                <rect key="frame" x="115" y="480.5" width="184" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="dC6-dH-hMV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                <state key="normal" title="Pass 'n' Play"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yrC-0H-xD5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Unv-mc-Iha" customClass="EmbossButton" customModule="SpyApp" customModuleProvider="target">
+                                <rect key="frame" x="115" y="581.5" width="184" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="g9A-QC-Ml0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                <state key="normal" title="Local Play"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="localPlayerTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="siQ-1T-e8U"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQS-66-96s" customClass="EmbossButton" customModule="SpyApp" customModuleProvider="target">
+                                <rect key="frame" x="115" y="682.5" width="184" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="4cL-tZ-jcu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                <state key="normal" title="Instructions"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1019478068" green="0.10196910050000001" blue="0.1019431576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gQS-66-96s" secondAttribute="trailing" constant="115" id="3BQ-yK-G9E"/>
+                            <constraint firstItem="fAW-7M-nlq" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.444444" id="6lq-OL-kSr"/>
+                            <constraint firstItem="fAW-7M-nlq" firstAttribute="top" secondItem="kll-CQ-OrK" secondAttribute="bottom" constant="50" id="7p1-Xw-5HS"/>
+                            <constraint firstItem="Unv-mc-Iha" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="115" id="Gyf-qk-ut3"/>
+                            <constraint firstItem="gQS-66-96s" firstAttribute="top" secondItem="Unv-mc-Iha" secondAttribute="bottom" constant="25" id="NZc-ET-cKD"/>
+                            <constraint firstItem="fAW-7M-nlq" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0848214" id="Nyd-he-Bkb"/>
+                            <constraint firstItem="fAW-7M-nlq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="115" id="Rrv-uW-TyV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Unv-mc-Iha" secondAttribute="trailing" constant="115" id="T1M-io-vVy"/>
+                            <constraint firstItem="gQS-66-96s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="115" id="U6X-tK-hZd"/>
+                            <constraint firstItem="gQS-66-96s" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.444444" id="VMX-rL-7bL"/>
+                            <constraint firstItem="AEm-Hp-rbK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="W3a-Ry-6H6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fAW-7M-nlq" secondAttribute="trailing" constant="115" id="WJX-Wk-2ZJ"/>
+                            <constraint firstItem="kll-CQ-OrK" firstAttribute="top" secondItem="AEm-Hp-rbK" secondAttribute="bottom" constant="25" id="cR8-0H-uWy"/>
+                            <constraint firstItem="kll-CQ-OrK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ctk-z1-fss"/>
+                            <constraint firstItem="Unv-mc-Iha" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.444444" id="fig-c9-MyM"/>
+                            <constraint firstItem="gQS-66-96s" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0848214" id="h3f-aj-NC8"/>
+                            <constraint firstItem="AEm-Hp-rbK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="jnP-9J-uUe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AEm-Hp-rbK" secondAttribute="trailing" constant="75" id="jo1-Ll-r9h"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kll-CQ-OrK" secondAttribute="trailing" constant="20" id="kWX-Is-RA2"/>
+                            <constraint firstItem="Unv-mc-Iha" firstAttribute="top" secondItem="fAW-7M-nlq" secondAttribute="bottom" constant="25" id="pzg-sP-kn5"/>
+                            <constraint firstItem="Unv-mc-Iha" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0848214" id="yfo-HP-n3W"/>
+                            <constraint firstItem="AEm-Hp-rbK" firstAttribute="width" secondItem="AEm-Hp-rbK" secondAttribute="height" multiplier="1:1" id="zDE-LE-vO9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uFk-4w-d07"/>
+                    <connections>
+                        <segue destination="Xmj-9S-9fo" kind="presentation" identifier="ShowSetPlayerCountSegue" modalPresentationStyle="fullScreen" id="239-SF-GpC"/>
+                        <segue destination="eja-rQ-feg" kind="presentation" identifier="BTShowAssignRolesSegue" modalPresentationStyle="fullScreen" id="MUy-vK-Cy3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-62" y="138"/>
+        </scene>
+        <!--BTEnterName-->
+        <scene sceneID="Q3O-YS-fOV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BTEnterName" id="eja-rQ-feg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Kvh-uq-VMC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pbU-Kv-WxT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="771" y="322"/>
+        </scene>
+        <!--SetPlayerCount-->
+        <scene sceneID="G0k-9C-a0M">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SetPlayerCount" id="Xmj-9S-9fo" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4PU-GC-c78"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hGe-oF-92U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="772" y="-79"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="IconNoBG" width="1024" height="1024"/>
+    </resources>
+</document>
