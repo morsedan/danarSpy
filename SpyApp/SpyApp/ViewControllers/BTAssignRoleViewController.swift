@@ -30,7 +30,7 @@ class BTAssignRoleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         guard let game = game else { return }
 //        playerService.delegate = game
@@ -58,7 +58,7 @@ class BTAssignRoleViewController: UIViewController {
         let playersArray = game.players.map { $0.name }
         playersLabel.text = playersArray.joined(separator: ", ")
     }
-    
+     
     // MARK: - Actions
     
     @IBAction func playersOKTapped(_ sender: Any) {
