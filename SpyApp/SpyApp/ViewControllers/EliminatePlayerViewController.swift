@@ -97,6 +97,12 @@ extension EliminatePlayerViewController: UIPickerViewDelegate, UIPickerViewDataS
         return name
     }
     
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        guard let game = game else { return nil }
+        let rowtext = game.activePlayers[row].name
+        return NSAttributedString(string: rowtext, attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+    }
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         guard let game = game else { return }

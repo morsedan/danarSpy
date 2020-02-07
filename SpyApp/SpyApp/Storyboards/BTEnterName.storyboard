@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kbz-ld-5eE">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Enter Name View Controller-->
+        <scene sceneID="ONY-Hh-gd0">
+            <objects>
+                <viewController id="kbz-ld-5eE" customClass="BTEnterNameViewController" customModule="SpyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rLo-gC-NDY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tCb-Zv-NHd">
+                                <rect key="frame" x="20" y="64" width="374" height="100.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qx2-LN-N8P">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DhX-nn-6Y2">
+                                        <rect key="frame" x="0.0" y="28.5" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="name"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZG-RT-Sn7">
+                                        <rect key="frame" x="0.0" y="70.5" width="374" height="30"/>
+                                        <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="nextButtonTapped:" destination="kbz-ld-5eE" eventType="touchUpInside" id="jRt-oy-oLH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tCb-Zv-NHd" firstAttribute="top" secondItem="wzK-MN-MV2" secondAttribute="top" constant="20" id="DbX-Bc-Hrm"/>
+                            <constraint firstItem="tCb-Zv-NHd" firstAttribute="leading" secondItem="wzK-MN-MV2" secondAttribute="leading" constant="20" id="bbX-3O-yOD"/>
+                            <constraint firstItem="wzK-MN-MV2" firstAttribute="trailing" secondItem="tCb-Zv-NHd" secondAttribute="trailing" constant="20" id="mlI-zi-u50"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wzK-MN-MV2"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameStackView" destination="tCb-Zv-NHd" id="0KY-Cg-lr7"/>
+                        <outlet property="nameTextField" destination="DhX-nn-6Y2" id="nkW-wp-Y0x"/>
+                        <outlet property="nextButton" destination="wZG-RT-Sn7" id="kYu-xl-lyN"/>
+                        <segue destination="nrD-Xk-pmb" kind="presentation" identifier="BTShowAssignRolesSegue" modalPresentationStyle="fullScreen" id="CoV-Xk-ffg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PnD-Bz-YVs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133" y="133"/>
+        </scene>
+        <!--Assign Role View Controller-->
+        <scene sceneID="5kR-Vz-6us">
+            <objects>
+                <viewController id="nrD-Xk-pmb" customClass="BTAssignRoleViewController" customModule="SpyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nvg-Rp-Mic">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="W1y-Jz-kts">
+                                <rect key="frame" x="20" y="671.5" width="374" height="90.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Role" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WF-sg-moV">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                        <color key="textColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memorize your role and tap &quot;OK&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWO-iX-amF">
+                                        <rect key="frame" x="0.0" y="32" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HnL-0x-fA9">
+                                        <rect key="frame" x="0.0" y="60.5" width="374" height="30"/>
+                                        <state key="normal" title="OK"/>
+                                        <connections>
+                                            <action selector="roleOKTapped:" destination="nrD-Xk-pmb" eventType="touchUpInside" id="0jC-ne-zgt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="U9R-EB-vta">
+                                <rect key="frame" x="20" y="64" width="374" height="87"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Players" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xjv-9Q-dgw">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When all players have joined tap &quot;OK&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbV-0m-vnV">
+                                        <rect key="frame" x="0.0" y="28.5" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITb-yn-FIW">
+                                        <rect key="frame" x="0.0" y="57" width="374" height="30"/>
+                                        <state key="normal" title="OK"/>
+                                        <connections>
+                                            <action selector="playersOKTapped:" destination="nrD-Xk-pmb" eventType="touchUpInside" id="guy-GY-KKI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="DYe-A1-Ye2" firstAttribute="trailing" secondItem="W1y-Jz-kts" secondAttribute="trailing" constant="20" id="D7m-9b-sg4"/>
+                            <constraint firstItem="W1y-Jz-kts" firstAttribute="leading" secondItem="DYe-A1-Ye2" secondAttribute="leading" constant="20" id="DcE-Rl-T80"/>
+                            <constraint firstItem="DYe-A1-Ye2" firstAttribute="trailing" secondItem="U9R-EB-vta" secondAttribute="trailing" constant="20" id="PCk-ak-hhK"/>
+                            <constraint firstItem="U9R-EB-vta" firstAttribute="top" secondItem="DYe-A1-Ye2" secondAttribute="top" constant="20" id="XOc-GF-MEb"/>
+                            <constraint firstItem="U9R-EB-vta" firstAttribute="leading" secondItem="DYe-A1-Ye2" secondAttribute="leading" constant="20" id="tvo-5C-QwN"/>
+                            <constraint firstItem="DYe-A1-Ye2" firstAttribute="bottom" secondItem="W1y-Jz-kts" secondAttribute="bottom" constant="100" id="ufN-Ed-Wjh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DYe-A1-Ye2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xuE-h2-xbM"/>
+                    <connections>
+                        <outlet property="nameStackView" destination="U9R-EB-vta" id="sT5-sE-Hw8"/>
+                        <outlet property="playersLabel" destination="Xjv-9Q-dgw" id="Zcr-SJ-cZM"/>
+                        <outlet property="roleLabel" destination="6WF-sg-moV" id="JBM-Je-F8W"/>
+                        <outlet property="roleStackView" destination="W1y-Jz-kts" id="YgR-sM-mdm"/>
+                        <segue destination="bwO-c9-1ey" kind="presentation" identifier="ShowBTEliminatePlayerSegue" modalPresentationStyle="fullScreen" id="Fen-HA-Z4a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Idn-Mq-Rnh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="891" y="133"/>
+        </scene>
+        <!--BTEliminatePlayer-->
+        <scene sceneID="uGL-fi-sCi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BTEliminatePlayer" id="bwO-c9-1ey" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="JPH-JN-54z"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="btw-yA-FdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1406" y="133"/>
+        </scene>
+    </scenes>
+</document>
