@@ -5,7 +5,7 @@ This app was built in 3.5 days by a two person team with no previous exposure to
 
 [Presentation Here](https://www.youtube.com/watch?v=k2oIVAsh6HQ&feature=youtu.be&t=22m57s)
 
-To get this project running:
+To run this projet:
   1. fork and clone the repository
   2. run pod install in the directory where the project is
   3. open the workspace
