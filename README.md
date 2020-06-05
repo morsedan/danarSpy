@@ -11,4 +11,4 @@ To run this projet:
   1. fork and clone the repository
   2. run pod install in the directory where the project is
   3. open the workspace
-  4. install on an iPhone
+  4. build and run the app on multiple simulators
