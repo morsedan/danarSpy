@@ -7,11 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B53AF8023ED2FD200696BAE /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B53AF7F23ED2FD200696BAE /* Onboarding.storyboard */; };
+		4B53AF8223ED306F00696BAE /* EmbossButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B53AF8123ED306F00696BAE /* EmbossButton.swift */; };
+		4B53AF8723ED309E00696BAE /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B53AF8423ED309E00696BAE /* WalkthroughPageViewController.swift */; };
+		4B53AF8823ED309E00696BAE /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B53AF8523ED309E00696BAE /* WalkthroughViewController.swift */; };
+		4B53AF8923ED309E00696BAE /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B53AF8623ED309E00696BAE /* WalkthroughContentViewController.swift */; };
+		4B53AF8B23ED378600696BAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B53AF8A23ED378500696BAE /* Main.storyboard */; };
+		4B53AF8D23ED379500696BAE /* BTEnterName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B53AF8C23ED379500696BAE /* BTEnterName.storyboard */; };
+		4B53AF8F23ED37A300696BAE /* BTEliminatePlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B53AF8E23ED37A300696BAE /* BTEliminatePlayer.storyboard */; };
+		C05F32B923EB74E5003F720D /* BTAssignRoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05F32B823EB74E5003F720D /* BTAssignRoleViewController.swift */; };
+		C05F32BB23EB9199003F720D /* BTGameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05F32BA23EB9199003F720D /* BTGameOverViewController.swift */; };
 		C0650BD323E91F7B0039A4E8 /* GameOverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0650BD223E91F7B0039A4E8 /* GameOverTableViewController.swift */; };
+		C0650BD923E9E9510039A4E8 /* BTEnterNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0650BD823E9E9510039A4E8 /* BTEnterNameViewController.swift */; };
+		C0650BDD23E9F3080039A4E8 /* BTEliminatePersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0650BDC23E9F3080039A4E8 /* BTEliminatePersonViewController.swift */; };
+		C0650BDF23E9F3A80039A4E8 /* PlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0650BDE23E9F3A80039A4E8 /* PlayerService.swift */; };
 		C0FF106F23E77D0E00E54968 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF106E23E77D0E00E54968 /* AppDelegate.swift */; };
 		C0FF107123E77D0E00E54968 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF107023E77D0E00E54968 /* SceneDelegate.swift */; };
 		C0FF107323E77D0E00E54968 /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF107223E77D0E00E54968 /* StartGameViewController.swift */; };
-		C0FF107623E77D0E00E54968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0FF107423E77D0E00E54968 /* Main.storyboard */; };
 		C0FF107823E77D0E00E54968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0FF107723E77D0E00E54968 /* Assets.xcassets */; };
 		C0FF107B23E77D0E00E54968 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0FF107923E77D0E00E54968 /* LaunchScreen.storyboard */; };
 		C0FF108F23E77EB100E54968 /* ItemPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF108E23E77EB100E54968 /* ItemPair.swift */; };
@@ -39,12 +51,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B53AF7F23ED2FD200696BAE /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		4B53AF8123ED306F00696BAE /* EmbossButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbossButton.swift; sourceTree = "<group>"; };
+		4B53AF8423ED309E00696BAE /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
+		4B53AF8523ED309E00696BAE /* WalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
+		4B53AF8623ED309E00696BAE /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
+		4B53AF8A23ED378500696BAE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4B53AF8C23ED379500696BAE /* BTEnterName.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BTEnterName.storyboard; sourceTree = "<group>"; };
+		4B53AF8E23ED37A300696BAE /* BTEliminatePlayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BTEliminatePlayer.storyboard; sourceTree = "<group>"; };
+		C05F32B823EB74E5003F720D /* BTAssignRoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTAssignRoleViewController.swift; sourceTree = "<group>"; };
+		C05F32BA23EB9199003F720D /* BTGameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTGameOverViewController.swift; sourceTree = "<group>"; };
 		C0650BD223E91F7B0039A4E8 /* GameOverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverTableViewController.swift; sourceTree = "<group>"; };
+		C0650BD823E9E9510039A4E8 /* BTEnterNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BTEnterNameViewController.swift; path = SpyApp/Storyboards/BTEnterNameViewController.swift; sourceTree = SOURCE_ROOT; };
+		C0650BDC23E9F3080039A4E8 /* BTEliminatePersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTEliminatePersonViewController.swift; sourceTree = "<group>"; };
+		C0650BDE23E9F3A80039A4E8 /* PlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerService.swift; sourceTree = "<group>"; };
 		C0FF106B23E77D0E00E54968 /* SpyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FF106E23E77D0E00E54968 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0FF107023E77D0E00E54968 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C0FF107223E77D0E00E54968 /* StartGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameViewController.swift; sourceTree = "<group>"; };
-		C0FF107523E77D0E00E54968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0FF107723E77D0E00E54968 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0FF107A23E77D0E00E54968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0FF107C23E77D0E00E54968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +106,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B53AF8323ED309E00696BAE /* Onboard View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4B53AF8423ED309E00696BAE /* WalkthroughPageViewController.swift */,
+				4B53AF8523ED309E00696BAE /* WalkthroughViewController.swift */,
+				4B53AF8623ED309E00696BAE /* WalkthroughContentViewController.swift */,
+			);
+			path = "Onboard View Controller";
+			sourceTree = "<group>";
+		};
 		C0FF106223E77D0E00E54968 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +145,7 @@
 				C0FF108823E77E0700E54968 /* Helpers */,
 				C0FF108923E77E2500E54968 /* Extensions */,
 				C0FF108A23E77E2E00E54968 /* Views */,
+				4B53AF8323ED309E00696BAE /* Onboard View Controller */,
 				C0FF108423E77DA000E54968 /* Storyboards */,
 				C0FF107723E77D0E00E54968 /* Assets.xcassets */,
 			);
@@ -130,6 +165,10 @@
 		C0FF108323E77D9000E54968 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C05F32BA23EB9199003F720D /* BTGameOverViewController.swift */,
+				C0650BDC23E9F3080039A4E8 /* BTEliminatePersonViewController.swift */,
+				C05F32B823EB74E5003F720D /* BTAssignRoleViewController.swift */,
+				C0650BD823E9E9510039A4E8 /* BTEnterNameViewController.swift */,
 				C0FF107223E77D0E00E54968 /* StartGameViewController.swift */,
 				C0FF109423E77EFA00E54968 /* SetPlayerCountViewController.swift */,
 				C0FF109623E77F1F00E54968 /* CreatePlayerViewController.swift */,
@@ -142,7 +181,10 @@
 		C0FF108423E77DA000E54968 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				C0FF107423E77D0E00E54968 /* Main.storyboard */,
+				4B53AF7F23ED2FD200696BAE /* Onboarding.storyboard */,
+				4B53AF8E23ED37A300696BAE /* BTEliminatePlayer.storyboard */,
+				4B53AF8C23ED379500696BAE /* BTEnterName.storyboard */,
+				4B53AF8A23ED378500696BAE /* Main.storyboard */,
 				C0FF109C23E77F7800E54968 /* SetPlayerCount.storyboard */,
 				C0FF109E23E77F8A00E54968 /* CreatePlayer.storyboard */,
 				C0FF10A023E77F9900E54968 /* EliminatePlayer.storyboard */,
@@ -172,6 +214,7 @@
 		C0FF108723E77DFF00E54968 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C0650BDE23E9F3A80039A4E8 /* PlayerService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -179,6 +222,7 @@
 		C0FF108823E77E0700E54968 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4B53AF8123ED306F00696BAE /* EmbossButton.swift */,
 				C0FF10B623E7843F00E54968 /* PropertyKeys.swift */,
 			);
 			path = Helpers;
@@ -313,11 +357,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0FF107B23E77D0E00E54968 /* LaunchScreen.storyboard in Resources */,
+				4B53AF8B23ED378600696BAE /* Main.storyboard in Resources */,
+				4B53AF8023ED2FD200696BAE /* Onboarding.storyboard in Resources */,
 				C0FF107823E77D0E00E54968 /* Assets.xcassets in Resources */,
+				4B53AF8D23ED379500696BAE /* BTEnterName.storyboard in Resources */,
 				C0FF109D23E77F7800E54968 /* SetPlayerCount.storyboard in Resources */,
-				C0FF107623E77D0E00E54968 /* Main.storyboard in Resources */,
 				C0FF10A123E77F9900E54968 /* EliminatePlayer.storyboard in Resources */,
 				C0FF10A323E77FAD00E54968 /* GameOver.storyboard in Resources */,
+				4B53AF8F23ED37A300696BAE /* BTEliminatePlayer.storyboard in Resources */,
 				C0FF109F23E77F8A00E54968 /* CreatePlayer.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,15 +384,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0FF109923E77F4A00E54968 /* EliminatePlayerViewController.swift in Sources */,
+				C05F32B923EB74E5003F720D /* BTAssignRoleViewController.swift in Sources */,
 				C0FF109523E77EFA00E54968 /* SetPlayerCountViewController.swift in Sources */,
+				4B53AF8923ED309E00696BAE /* WalkthroughContentViewController.swift in Sources */,
 				C0FF109323E77EC700E54968 /* Game.swift in Sources */,
+				C05F32BB23EB9199003F720D /* BTGameOverViewController.swift in Sources */,
 				C0FF108F23E77EB100E54968 /* ItemPair.swift in Sources */,
 				C0FF10B723E7843F00E54968 /* PropertyKeys.swift in Sources */,
+				4B53AF8823ED309E00696BAE /* WalkthroughViewController.swift in Sources */,
+				C0650BDD23E9F3080039A4E8 /* BTEliminatePersonViewController.swift in Sources */,
 				C0FF107323E77D0E00E54968 /* StartGameViewController.swift in Sources */,
 				C0FF106F23E77D0E00E54968 /* AppDelegate.swift in Sources */,
+				C0650BDF23E9F3A80039A4E8 /* PlayerService.swift in Sources */,
 				C0FF109723E77F1F00E54968 /* CreatePlayerViewController.swift in Sources */,
+				4B53AF8723ED309E00696BAE /* WalkthroughPageViewController.swift in Sources */,
+				4B53AF8223ED306F00696BAE /* EmbossButton.swift in Sources */,
 				C0FF10B523E780CB00E54968 /* Player.swift in Sources */,
 				C0FF107123E77D0E00E54968 /* SceneDelegate.swift in Sources */,
+				C0650BD923E9E9510039A4E8 /* BTEnterNameViewController.swift in Sources */,
 				C0650BD323E91F7B0039A4E8 /* GameOverTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,14 +425,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C0FF107423E77D0E00E54968 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C0FF107523E77D0E00E54968 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C0FF107923E77D0E00E54968 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -507,6 +555,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 452VS5LHDK;
 				INFOPLIST_FILE = SpyApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -526,6 +575,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 452VS5LHDK;
 				INFOPLIST_FILE = SpyApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

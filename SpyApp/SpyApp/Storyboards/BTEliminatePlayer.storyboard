@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z6C-Fv-lSC">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Eliminate Person View Controller-->
+        <scene sceneID="yO5-uD-cP6">
+            <objects>
+                <viewController id="Z6C-Fv-lSC" customClass="BTEliminatePersonViewController" customModule="SpyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZPU-pm-wfk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ymv-Vm-HLh">
+                                <rect key="frame" x="47" y="340" width="320" height="216"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="02h-Mo-gqi">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                    </pickerView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wg4-iU-eEn" customClass="EmbossButton" customModule="SpyApp" customModuleProvider="target">
+                                <rect key="frame" x="115" y="581" width="184" height="76"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                <state key="normal" title="Eliminate"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="eliminateTapped:" destination="Z6C-Fv-lSC" eventType="touchUpInside" id="xNA-BD-hv3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJS-wj-zgI">
+                                <rect key="frame" x="20" y="287.5" width="374" height="30"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1019478068" green="0.10196910050000001" blue="0.1019431576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ymv-Vm-HLh" firstAttribute="top" secondItem="iJS-wj-zgI" secondAttribute="bottom" constant="22.5" id="0EQ-k7-ela"/>
+                            <constraint firstItem="ymv-Vm-HLh" firstAttribute="centerX" secondItem="ZPU-pm-wfk" secondAttribute="centerX" id="5t0-Ob-r9M"/>
+                            <constraint firstItem="wg4-iU-eEn" firstAttribute="top" secondItem="ymv-Vm-HLh" secondAttribute="bottom" constant="25" id="65D-rJ-cqt"/>
+                            <constraint firstItem="qal-Mn-AiF" firstAttribute="trailing" secondItem="iJS-wj-zgI" secondAttribute="trailing" constant="20" id="Dnn-nL-NLI"/>
+                            <constraint firstItem="wg4-iU-eEn" firstAttribute="centerX" secondItem="ymv-Vm-HLh" secondAttribute="centerX" id="GnB-lb-cC9"/>
+                            <constraint firstItem="wg4-iU-eEn" firstAttribute="height" secondItem="ZPU-pm-wfk" secondAttribute="height" multiplier="0.0848214" id="HIy-Dw-6Og"/>
+                            <constraint firstItem="iJS-wj-zgI" firstAttribute="leading" secondItem="qal-Mn-AiF" secondAttribute="leading" constant="20" id="Mpi-Bf-aFV"/>
+                            <constraint firstItem="wg4-iU-eEn" firstAttribute="leading" secondItem="qal-Mn-AiF" secondAttribute="leading" constant="115" id="SxQ-rr-yfE"/>
+                            <constraint firstItem="qal-Mn-AiF" firstAttribute="bottom" secondItem="wg4-iU-eEn" secondAttribute="bottom" constant="205" id="cEA-sj-YUy"/>
+                            <constraint firstItem="iJS-wj-zgI" firstAttribute="centerX" secondItem="ZPU-pm-wfk" secondAttribute="centerX" id="q5m-a9-shW"/>
+                            <constraint firstItem="ymv-Vm-HLh" firstAttribute="centerY" secondItem="ZPU-pm-wfk" secondAttribute="centerY" id="q7s-nD-pbj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qal-Mn-AiF"/>
+                    </view>
+                    <connections>
+                        <outlet property="eliminateButton" destination="wg4-iU-eEn" id="lAj-oP-46y"/>
+                        <outlet property="nameRoleLabel" destination="iJS-wj-zgI" id="bfP-fD-7f3"/>
+                        <outlet property="pickerView" destination="02h-Mo-gqi" id="lz0-oM-MhD"/>
+                        <segue destination="P6P-Cw-dLV" kind="presentation" identifier="BTShowGameOverSegue" modalPresentationStyle="fullScreen" id="x3a-mb-O62"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LxS-iU-JAK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4.3478260869565224" y="164.73214285714286"/>
+        </scene>
+        <!--Game Over View Controller-->
+        <scene sceneID="nXr-62-t5A">
+            <objects>
+                <viewController id="P6P-Cw-dLV" customClass="BTGameOverViewController" customModule="SpyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uB0-iP-Z9m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="lmr-ki-qmO">
+                                <rect key="frame" x="20" y="351" width="374" height="194.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aoi-1Z-Kza">
+                                        <rect key="frame" x="100" y="0.0" width="174.5" height="41"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who Won!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWt-BS-w16">
+                                        <rect key="frame" x="124" y="63" width="126" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcZ-ED-8xZ" customClass="EmbossButton" customModule="SpyApp" customModuleProvider="target">
+                                        <rect key="frame" x="95" y="118.5" width="184" height="76"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="76" id="Ccf-NE-9gr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                        <state key="normal" title="Play Again"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="playAgainTapped:" destination="P6P-Cw-dLV" eventType="touchUpInside" id="wOj-Pv-zbK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1019478068" green="0.10196910050000001" blue="0.1019431576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="lmr-ki-qmO" firstAttribute="centerY" secondItem="uB0-iP-Z9m" secondAttribute="centerY" id="DnM-fe-t9i"/>
+                            <constraint firstItem="lmr-ki-qmO" firstAttribute="centerX" secondItem="uB0-iP-Z9m" secondAttribute="centerX" id="UTz-Ir-1jY"/>
+                            <constraint firstItem="FcZ-ED-8xZ" firstAttribute="width" secondItem="uB0-iP-Z9m" secondAttribute="width" multiplier="0.44444" id="WfM-GR-2SK"/>
+                            <constraint firstItem="ubC-bj-iaX" firstAttribute="trailing" secondItem="lmr-ki-qmO" secondAttribute="trailing" constant="20" id="gm1-fy-hxU"/>
+                            <constraint firstItem="lmr-ki-qmO" firstAttribute="leading" secondItem="ubC-bj-iaX" secondAttribute="leading" constant="20" id="ogm-H0-NBU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ubC-bj-iaX"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nDZ-zS-Yyy"/>
+                    <connections>
+                        <outlet property="wonLabel" destination="hWt-BS-w16" id="zIp-KG-l3r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="541-H0-7Ot" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="771" y="165"/>
+        </scene>
+    </scenes>
+</document>

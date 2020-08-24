@@ -15,4 +15,10 @@ struct PropertyKeys {
     static let createPlayerSegue = "ShowCreatePlayerSegue"
     static let eliminateSegue = "ShowEliminatePlayerSegue"
     static let gameOverSegue = "ShowGameOverSegue"
+    
+    static let btEliminateSegue = "ShowBTEliminatePlayerSegue"
+    static let btAssignRolesSegue = "BTShowAssignRolesSegue"
+    static let btGameOverSegue = "BTShowGameOverSegue"
+    
+    static let displayNameKey = "UserDisplayNameKey"
 }

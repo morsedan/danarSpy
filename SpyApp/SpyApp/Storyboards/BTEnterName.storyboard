@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kbz-ld-5eE">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Enter Name View Controller-->
+        <scene sceneID="ONY-Hh-gd0">
+            <objects>
+                <viewController id="kbz-ld-5eE" customClass="BTEnterNameViewController" customModule="SpyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rLo-gC-NDY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="fuA-j0-FgW">
+                                <rect key="frame" x="50" y="244" width="314" height="172"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your name:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mah-DX-8qQ">
+                                        <rect key="frame" x="75" y="0.0" width="164" height="30"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TCj-Pv-uD6">
+                                        <rect key="frame" x="0.0" y="46" width="314" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ti-Mo-10h" customClass="EmbossButton" customModule="SpyApp" customModuleProvider="target">
+                                        <rect key="frame" x="65" y="96" width="184" height="76"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="76" id="XNW-5J-ZZW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                        <state key="normal" title="Done"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="nrD-Xk-pmb" kind="presentation" identifier="BTShowAssignRolesSegue" modalPresentationStyle="fullScreen" id="HhH-Cj-wEp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="TCj-Pv-uD6" firstAttribute="width" secondItem="fuA-j0-FgW" secondAttribute="width" id="CAn-gu-ttG"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1019478068" green="0.10196910050000001" blue="0.1019431576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8Ti-Mo-10h" firstAttribute="width" secondItem="rLo-gC-NDY" secondAttribute="width" multiplier="0.44444" id="047-sT-MBv"/>
+                            <constraint firstItem="fuA-j0-FgW" firstAttribute="top" secondItem="wzK-MN-MV2" secondAttribute="top" constant="200" id="5P9-TQ-Sq6"/>
+                            <constraint firstItem="fuA-j0-FgW" firstAttribute="leading" secondItem="wzK-MN-MV2" secondAttribute="leading" constant="50" id="oZa-r9-mly"/>
+                            <constraint firstItem="wzK-MN-MV2" firstAttribute="trailing" secondItem="fuA-j0-FgW" secondAttribute="trailing" constant="50" id="pM6-Wl-Rge"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wzK-MN-MV2"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameStackView" destination="fuA-j0-FgW" id="O1r-Ki-3LK"/>
+                        <outlet property="nameTextField" destination="TCj-Pv-uD6" id="GjP-dk-Tbk"/>
+                        <outlet property="nextButton" destination="8Ti-Mo-10h" id="ZFu-iM-SBn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PnD-Bz-YVs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133" y="133"/>
+        </scene>
+        <!--Assign Role View Controller-->
+        <scene sceneID="5kR-Vz-6us">
+            <objects>
+                <viewController id="nrD-Xk-pmb" customClass="BTAssignRoleViewController" customModule="SpyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nvg-Rp-Mic">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="U9R-EB-vta">
+                                <rect key="frame" x="20" y="244" width="374" height="162.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Players]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xjv-9Q-dgw">
+                                        <rect key="frame" x="146.5" y="0.0" width="81" height="30"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When all players have joined tap &quot;Let's Go&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbV-0m-vnV">
+                                        <rect key="frame" x="17.5" y="46" width="339.5" height="24.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOx-dI-lsN" customClass="EmbossButton" customModule="SpyApp" customModuleProvider="target">
+                                        <rect key="frame" x="95" y="86.5" width="184" height="76"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="76" id="Nzy-a4-29e"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                        <state key="normal" title="Lets Go"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="playersOKTapped:" destination="nrD-Xk-pmb" eventType="touchUpInside" id="QKB-yp-qfZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="W1y-Jz-kts">
+                                <rect key="frame" x="20" y="456.5" width="374" height="162.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Role" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WF-sg-moV">
+                                        <rect key="frame" x="167" y="0.0" width="40" height="30"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memorize your role and tap &quot;Got It&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWO-iX-amF">
+                                        <rect key="frame" x="45.5" y="46" width="283" height="24.5"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWe-TX-tJF" customClass="EmbossButton" customModule="SpyApp" customModuleProvider="target">
+                                        <rect key="frame" x="95" y="86.5" width="184" height="76"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="76" id="3nQ-by-wAw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
+                                        <state key="normal" title="Got It"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="buttonCornerRadius">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="roleOKTapped:" destination="nrD-Xk-pmb" eventType="touchUpInside" id="D1t-FN-mbT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DYe-A1-Ye2" firstAttribute="trailing" secondItem="U9R-EB-vta" secondAttribute="trailing" constant="20" id="B2Q-zj-m0L"/>
+                            <constraint firstItem="U9R-EB-vta" firstAttribute="leading" secondItem="DYe-A1-Ye2" secondAttribute="leading" constant="20" id="G2P-gw-vf4"/>
+                            <constraint firstItem="W1y-Jz-kts" firstAttribute="top" secondItem="U9R-EB-vta" secondAttribute="bottom" constant="50" id="L5S-Ka-Vuq"/>
+                            <constraint firstItem="U9R-EB-vta" firstAttribute="top" secondItem="DYe-A1-Ye2" secondAttribute="top" constant="200" id="LmP-0W-piL"/>
+                            <constraint firstItem="W1y-Jz-kts" firstAttribute="leading" secondItem="DYe-A1-Ye2" secondAttribute="leading" constant="20" id="WmV-FL-WP1"/>
+                            <constraint firstItem="mOx-dI-lsN" firstAttribute="width" secondItem="nvg-Rp-Mic" secondAttribute="width" multiplier="0.444444" id="eCp-pN-4bh"/>
+                            <constraint firstItem="DYe-A1-Ye2" firstAttribute="trailing" secondItem="W1y-Jz-kts" secondAttribute="trailing" constant="20" id="jIh-A3-owe"/>
+                            <constraint firstItem="SWe-TX-tJF" firstAttribute="width" secondItem="nvg-Rp-Mic" secondAttribute="width" multiplier="0.44444" id="zQX-qe-0Ul"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DYe-A1-Ye2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xuE-h2-xbM"/>
+                    <connections>
+                        <outlet property="nameStackView" destination="U9R-EB-vta" id="Kde-fg-e3q"/>
+                        <outlet property="playersLabel" destination="Xjv-9Q-dgw" id="mca-zq-2tb"/>
+                        <outlet property="roleLabel" destination="6WF-sg-moV" id="Isl-5I-Jbw"/>
+                        <outlet property="roleStackView" destination="W1y-Jz-kts" id="xXy-EZ-rKD"/>
+                        <segue destination="bwO-c9-1ey" kind="presentation" identifier="ShowBTEliminatePlayerSegue" modalPresentationStyle="fullScreen" id="XD3-Z5-yR2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Idn-Mq-Rnh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="891" y="133"/>
+        </scene>
+        <!--BTEliminatePlayer-->
+        <scene sceneID="uGL-fi-sCi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BTEliminatePlayer" id="bwO-c9-1ey" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="JPH-JN-54z"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="btw-yA-FdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1406" y="133"/>
+        </scene>
+    </scenes>
+</document>
