@@ -17,6 +17,10 @@ struct Player: Codable, Equatable {
     let name: String
     let id: String = UUID().uuidString
     let role: RoleType
-    var isStillPlaying: Bool
     var eliminatedInRound: Int = 0
+    var voteCount = 0
+    
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        return lhs.name == rhs.name
+    }
 }
